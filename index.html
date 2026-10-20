@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f8eaf1">
+  <meta name="description" content="Một đóa hoa, một lời thương. Chạm để nhận lời chúc ngày Phụ nữ Việt Nam 20/10 dành riêng cho bạn.">
+  <meta name="color-scheme" content="light">
+  <title>Một đóa hoa, một lời thương · 20/10</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23f8eaf1'/%3E%3Cpath d='M32 48C10 48 7 30 11 24c9 0 17 6 21 18C20 30 23 15 32 8c9 7 12 22 0 34 4-12 12-18 21-18 4 6 1 24-21 24Z' fill='%23c16a8b'/%3E%3C/svg%3E">
+  <style>
+    /* ĐỔI MÀU Ở ĐÂY. Font hệ thống giúp file chạy hoàn toàn offline. */
+    :root {
+      --rose: #9b4265;
+      --rose-dark: #77334f;
+      --ink: #543b50;
+      --muted: #796375;
+      --pink: #f9e7ee;
+      --lavender: #ece6f6;
+      --cream: #fffaf0;
+      --line: #bb809b40;
+      --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color-scheme: light;
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--pink);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { min-width: 280px; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      background:
+        radial-gradient(ellipse at 18% 22%, #fffbf3b3 0, transparent 44%),
+        radial-gradient(ellipse at 86% 76%, #dcd5f27d 0, transparent 48%),
+        linear-gradient(128deg, #f8e9ec, #f9eaf1 48%, #eae5f5);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: clip;
+    }
+    button, input, select { font: inherit; }
+    button { color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    button, a, input, select { touch-action: manipulation; }
+    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 3px solid var(--rose);
+      outline-offset: 5px;
+    }
+    button:disabled { cursor: default; }
+    [hidden] { display: none !important; }
+    svg { display: block; }
+    .icons { position: absolute; width: 0; height: 0; overflow: hidden; }
+    .icon { width: 20px; height: 20px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .site-header {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      max-width: 1600px;
+      margin: auto;
+      padding: max(22px, env(safe-area-inset-top)) 22px 12px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-flower { width: 29px; height: 29px; color: var(--rose); }
+    .brand-name { display: block; font: italic 22px/1.1 var(--serif); letter-spacing: -.8px; }
+    .brand-note { display: block; margin-top: 5px; font-size: 9px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--muted); }
+    .music-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 9px 13px;
+      border: 1px solid #b77c9740;
+      border-radius: 30px;
+      background: #fffaf64d;
+      font-size: 12px;
+      transition: background .2s;
+    }
+    .music-button:hover { background: #fffaf6b3; }
+    .music-button[aria-pressed="true"] { color: var(--rose-dark); background: #fff8f2cc; }
+    .music-button .icon { width: 17px; height: 17px; }
+    .sound-wave { display: none; align-items: center; gap: 2px; width: 17px; height: 17px; }
+    .sound-wave i { width: 2px; height: 10px; border-radius: 2px; background: currentColor; animation: sound .9s ease-in-out infinite alternate; }
+    .sound-wave i:nth-child(2) { height: 16px; animation-delay: -.3s; }
+    .sound-wave i:nth-child(3) { height: 7px; animation-delay: -.6s; }
+    .music-button[aria-pressed="true"] .sound-wave { display: flex; }
+    .music-button[aria-pressed="true"] > .icon { display: none; }
+    main { position: relative; z-index: 1; }
+    .experience {
+      width: min(100% - 36px, 1120px);
+      min-height: calc(100svh - 180px);
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 0 24px;
+    }
+    .intro { position: relative; text-align: center; width: 100%; }
+    .eyebrow { margin: 0 0 15px; font-size: 10px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--rose); }
+    .intro-title { margin: 0; font: 400 clamp(33px, 7.9vw, 62px)/1.16 var(--serif); letter-spacing: -1.2px; }
+    .intro-title em { color: var(--rose); font-weight: 400; }
+    .intro-subtitle { margin: 16px auto 0; color: var(--muted); font-size: 13px; }
+    .recipient { display: inline-block; max-width: min(75vw, 450px); overflow-wrap: anywhere; font-weight: 600; color: var(--rose-dark); }
+    .bloom-copy { display: none; margin: 0; font: italic 400 clamp(29px, 6.7vw, 46px)/1.3 var(--serif); color: var(--rose); }
+    .bloom-copy small { display: block; margin-top: 13px; font: 13px/1.7 var(--sans); color: var(--muted); }
+    .garden { position: relative; width: min(88vw, 400px); flex-shrink: 0; margin: 1px auto -3px; }
+    .garden::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 9% 3% 2%;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, #fff9dfb3, #fff1e650 45%, transparent 71%);
+      opacity: .5;
+      transition: opacity 2s;
+    }
+    .orbit { position: absolute; width: 76%; aspect-ratio: 1; top: 13%; left: 12%; border: 1px solid #bd80952b; border-radius: 50%; }
+    .orbit::before { content: ""; position: absolute; inset: 12px; border: 1px dashed #bd80952b; border-radius: 50%; }
+    .orbit-star { position: absolute; color: #aa7856; font-size: 19px; line-height: 1; }
+    .orbit-star.one { left: 4%; top: 29%; }
+    .orbit-star.two { right: 4%; bottom: 27%; font-size: 14px; }
+    .orbit-star.three { right: 23%; top: -5px; font-size: 10px; }
+    .flower-button { display: block; position: relative; width: 100%; padding: 0; border: 0; border-radius: 50%; background: transparent; }
+    .flower-button:focus-visible { outline-offset: -20px; }
+    .flower-art { width: 100%; height: auto; overflow: visible; }
+    .flower-float { transform-origin: 260px 340px; animation: breathe 4s ease-in-out infinite; }
+    .petal {
+      transform-origin: 260px 334px;
+      transform: rotate(var(--closed)) scale(.39, .85);
+      transition: transform 2.8s cubic-bezier(.2, .65, .2, 1);
+      transition-delay: var(--delay);
+    }
+    .petal path { stroke: #b9678859; stroke-width: 1; }
+    .petal .vein { fill: none; stroke: #fff9ef80; stroke-width: 1; }
+    .petal.inner { transform: rotate(var(--closed)) scale(.36, .91); }
+    .calyx { transform-origin: 260px 334px; transform: scale(.48, .7); transition: transform 2.8s .2s cubic-bezier(.2, .65, .2, 1); }
+    .flower-heart { opacity: 0; transform-origin: 260px 320px; transform: scale(.2); transition: opacity 1.6s 1.2s, transform 1.8s 1.2s; }
+    .stem { stroke: #809084; stroke-width: 2; fill: none; }
+    .leaf { fill: #a7b69a; stroke: #83927d; stroke-width: .6; }
+    .blooming .petal, .bloomed .petal { transform: rotate(var(--open)) scale(var(--sx, 1), var(--sy, 1)); }
+    .blooming .calyx, .bloomed .calyx { transform: scale(1); }
+    .blooming .flower-heart, .bloomed .flower-heart { opacity: 1; transform: scale(1); }
+    .blooming .flower-float, .bloomed .flower-float { animation: none; }
+    .blooming .garden::before, .bloomed .garden::before { opacity: 1; }
+    body[data-phase="closed"] .petal,
+    body[data-phase="closed"] .calyx,
+    body[data-phase="closed"] .flower-heart,
+    body[data-phase="closed"] .mini-flower { transition: none; }
+    .halo { position: absolute; pointer-events: none; inset: 13% 9% 10%; border-radius: 50%; opacity: 0; background: radial-gradient(circle, #fff9d166, transparent 68%); }
+    .blooming .halo { animation: radiate 3.5s ease-out both; }
+    .invitation { text-align: center; margin: -4px 0 0; min-height: 72px; }
+    .touch-label { display: flex; justify-content: center; align-items: center; gap: 7px; margin: 0 0 8px; font-size: 13px; color: var(--rose-dark); }
+    .touch-label .icon { width: 16px; height: 16px; }
+    .quiet-note { margin: 0; font-size: 11px; letter-spacing: .2px; color: var(--muted); }
+    .opening-note { display: none; font: italic 16px/1.7 var(--serif); color: var(--muted); }
+    body[data-phase="opening"] .intro-copy, body[data-phase="opening"] .touch-copy { display: none; }
+    body[data-phase="opening"] .bloom-copy, body[data-phase="opening"] .opening-note { display: block; animation: appear .6s both; }
+    .letter { position: relative; width: 100%; padding: 31px 25px 27px; background: #fffcf5de; border: 1px solid #fffdf8; border-radius: 8px 8px 46px 8px; box-shadow: 0 16px 60px #7942620a, 0 2px 8px #79426204; }
+    .letter::before { content: ""; position: absolute; pointer-events: none; inset: 9px; border: 1px solid #c5a17b38; border-radius: 3px 3px 37px 3px; }
+    .letter-date { display: flex; align-items: center; gap: 11px; margin-bottom: 16px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .letter-date::before { content: ""; width: 24px; height: 1px; background: #b7946a; }
+    .letter-to { margin: 0 0 8px; color: var(--rose-dark); font: italic 20px/1.5 var(--serif); overflow-wrap: anywhere; }
+    .wish-title { margin: 0; font: italic 400 clamp(34px, 8.5vw, 49px)/1.15 var(--serif); letter-spacing: -1.2px; color: var(--rose); }
+    .wish-title span { display: block; margin-top: 5px; font-style: normal; font-size: 1.22em; letter-spacing: -3px; }
+    .letter-rule { display: flex; align-items: center; gap: 12px; margin: 20px 0; color: #ac835e; }
+    .letter-rule::before, .letter-rule::after { content: ""; width: 42px; height: 1px; background: #c5a17b4d; }
+    .letter-rule .icon { width: 15px; height: 15px; }
+    .wish-lines { margin: 0; font-size: 14px; line-height: 1.85; }
+    .wish-line { margin: 0 0 9px; animation: line-in .75s both; animation-delay: var(--line-delay); }
+    .signature { margin: 20px 0 0; font: italic 19px/1.5 var(--serif); color: var(--rose-dark); overflow-wrap: anywhere; animation: line-in .7s 1.85s both; }
+    .letter-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 23px; animation: line-in .7s 2.1s both; }
+    .primary, .secondary { display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-height: 45px; padding: 11px 17px; border-radius: 30px; font-size: 12px; font-weight: 500; }
+    .primary { border: 1px solid var(--rose); background: var(--rose); color: #fffaf8; box-shadow: 0 4px 13px #9b42651c; }
+    .primary:hover { background: var(--rose-dark); border-color: var(--rose-dark); }
+    .secondary { border: 1px solid #9b42653d; background: transparent; color: var(--rose-dark); }
+    .secondary:hover { background: #f6e5eb; }
+    .primary .icon, .secondary .icon { width: 15px; height: 15px; }
+    .replay { display: flex; align-items: center; gap: 6px; padding: 12px; margin: 10px auto 0; border: 0; background: none; font-size: 11px; color: var(--muted); }
+    .replay .icon { width: 13px; height: 13px; }
+    body:is([data-phase="discover"], [data-phase="wish"]) .experience { padding-top: 2px; }
+    /* Giữ nguyên kích thước SVG khi chuyển màn; thu cả cụm bằng transform. */
+    body:is([data-phase="discover"], [data-phase="wish"]) .garden { height: calc(min(88vw, 400px) * .66); transform: scale(.71); transform-origin: 50% 0; margin-top: -5px; margin-bottom: -24px; }
+    body:is([data-phase="discover"], [data-phase="wish"]) .orbit { opacity: .6; }
+    body[data-phase="wish"] .letter { animation: appear .8s both; }
+    .site-footer { position: relative; z-index: 1; padding: 6px 20px max(22px, env(safe-area-inset-bottom)); text-align: center; }
+    .steps { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 0 14px; padding: 0; list-style: none; font-size: 10px; color: var(--muted); }
+    .steps li { display: flex; align-items: center; gap: 5px; }
+    .steps li + li::before { content: ""; width: 20px; height: 1px; background: var(--line); margin-right: 5px; }
+    .step-number { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; border: 1px solid transparent; font-size: 9px; }
+    .steps [aria-current="step"] { color: var(--rose-dark); }
+    .steps [aria-current="step"] .step-number { background: #fff8f38c; border-color: #bb809b4d; }
+    .footer-note { margin: 0; color: var(--muted); font: italic 12px/1.6 var(--serif); }
+    .footer-note span { color: var(--rose); }
+    .corner-art { position: fixed; pointer-events: none; width: clamp(120px, 20vw, 270px); color: #bd8c9f; opacity: .28; }
+    .corner-left { left: -45px; bottom: 23px; transform: rotate(3deg); }
+    .corner-right { right: -55px; top: 100px; transform: rotate(185deg); }
+    .ambient, .mini-garden, .burst-layer { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+    .ambient { z-index: 0; }
+    .drifter { position: absolute; left: var(--x); top: -30px; width: var(--size); height: calc(var(--size) * 1.4); background: var(--color); border-radius: 80% 0 75% 20%; opacity: 0; animation: fall var(--duration) var(--delay) linear infinite; }
+    .drifter.sparkle { background: transparent; width: var(--size); height: var(--size); color: #ae8658; font-size: var(--size); border-radius: 0; }
+    .mini-garden { z-index: 0; }
+    .mini-flower { position: absolute; left: var(--x); top: var(--y); width: var(--size); opacity: 0; transform: scale(.2) rotate(-30deg); color: var(--color); transition: opacity 1.8s var(--delay), transform 2.4s var(--delay) cubic-bezier(.2, .7, .3, 1); }
+    .blooming .mini-flower, .bloomed .mini-flower { opacity: .45; transform: scale(1) rotate(0deg); }
+    .burst-layer { z-index: 4; }
+    .burst-petal { position: absolute; left: var(--x); top: var(--y); width: var(--size); height: calc(var(--size) * 1.5); border-radius: 80% 0 75% 20%; background: var(--color); animation: burst 2.7s var(--delay) cubic-bezier(.15, .6, .4, 1) both; }
+    .toast { position: fixed; z-index: 20; bottom: max(24px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100% - 36px); padding: 12px 19px; border: 1px solid #fff8f2; border-radius: 20px; background: #fffaf5; color: var(--rose-dark); box-shadow: 0 8px 35px #543b5026; font-size: 13px; text-align: center; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+    dialog { position: fixed; width: min(440px, calc(100% - 32px)); max-height: calc(100svh - 40px); padding: 29px 25px; overflow-y: auto; border: 1px solid #fffdfa; border-radius: 18px; background: #fffaf6; color: var(--ink); box-shadow: 0 24px 90px #543b5033; }
+    dialog::backdrop { background: #503a5059; }
+    .dialog-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+    .dialog-top h2 { margin: 0; color: var(--rose-dark); font: 400 29px/1.2 var(--serif); }
+    .close-dialog { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; margin: -10px -12px 0 0; background: transparent; border: 0; border-radius: 50%; }
+    .dialog-description { font-size: 13px; color: var(--muted); margin: 12px 0 22px; }
+    label { display: block; font-size: 12px; margin: 14px 0 6px; color: var(--rose-dark); }
+    input, select { width: 100%; min-height: 46px; border: 1px solid #c6a5b4; border-radius: 8px; padding: 10px 12px; background: #fffdfa; color: var(--ink); font-size: 16px; }
+    select { padding-right: 25px; }
+    dialog .primary { width: 100%; margin-top: 23px; }
+    .copy-field { font-size: 13px; }
+    .manual-help { margin: 10px 0 0; font-size: 12px; color: var(--muted); }
+    .no-js { margin: 20px; text-align: center; }
+    .personalize { width: min(100%, 420px); margin: 20px auto 3px; text-align: left; }
+    .personalize > label { margin-top: 0; font-size: 11px; }
+    .name-row { display: flex; gap: 8px; align-items: center; }
+    .name-row input { min-width: 0; background: #fffaf6b3; border-color: #b77c9759; border-radius: 30px; padding-inline: 17px; font-size: 16px; }
+    .name-row .primary { flex-shrink: 0; padding-inline: 18px; }
+    .personalize details { margin-top: 2px; }
+    .personalize summary { width: fit-content; min-height: 38px; padding-block: 9px; font-size: 11px; color: var(--muted); cursor: pointer; }
+    .extra-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 0 12px; }
+    .extra-fields label { margin-top: 2px; font-size: 11px; }
+    .extra-fields input, .extra-fields select { font-size: 16px; }
+    .discovery { width: 100%; padding: 20px 7px 25px; }
+    body[data-phase="discover"] .discovery { animation: appear .7s both; }
+    .chapter-label { margin: 0 0 10px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--rose); }
+    .discovery-title { margin: 0; color: var(--rose-dark); font: italic 400 clamp(32px, 7.5vw, 43px)/1.2 var(--serif); letter-spacing: -.8px; }
+    .discovery-lead { margin: 14px 0 20px; color: var(--muted); font-size: 13px; }
+    .keepsakes { display: grid; gap: 10px; margin-bottom: 17px; }
+    .keepsake { display: grid; grid-template-columns: 42px minmax(0, 1fr) 16px; align-items: center; gap: 11px; width: 100%; min-height: 88px; padding: 14px 16px; text-align: left; border: 1px solid #fffaf5; border-radius: 15px; background: #fffaf580; box-shadow: 0 4px 15px #79426204; transition: background .2s, border-color .2s; }
+    .keepsake:hover { background: #fffaf5d9; border-color: #c593aa66; }
+    .keepsake[aria-expanded="true"] { background: #fffaf5e6; border-color: #c593aa59; }
+    .keepsake-flower { width: 42px; height: 52px; color: #c190ac; transform: scale(.78); transition: transform .7s cubic-bezier(.2,.7,.3,1); }
+    .keepsake:nth-child(2) .keepsake-flower { color: #af9ac7; }
+    .keepsake:nth-child(3) .keepsake-flower { color: #c8a275; }
+    .keepsake[aria-expanded="true"] .keepsake-flower { transform: scale(1) rotate(12deg); }
+    .keepsake-title { display: block; color: var(--rose-dark); font: 400 19px/1.4 var(--serif); }
+    .keepsake-hint { display: block; margin-top: 2px; font-size: 11px; color: var(--muted); }
+    .keepsake-note { display: block; margin-top: 7px; font-size: 13px; line-height: 1.7; color: var(--ink); animation: line-in .5s both; }
+    .keepsake-sign { font-size: 20px; color: var(--rose); }
+    .explore-count { min-height: 21px; margin: 0 0 15px; font-size: 11px; color: var(--muted); }
+    .discovery .primary { width: 100%; }
+    .discovery .replay { margin-top: 4px; }
+    .keepsake-summary { margin: 15px 0 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
+    .journey-label { margin: 0 0 9px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; max-width: 530px; margin: 0 auto 15px; }
+    .steps li { display: block; min-width: 0; }
+    .steps li + li::before { display: none; }
+    .step-link { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; min-height: 55px; width: 100%; padding: 4px 0; border: 0; border-radius: 8px; background: transparent; color: inherit; font-size: 10px; }
+    .step-link:hover:not(:disabled) { background: #fffaf55c; }
+    .step-link:disabled { opacity: .5; cursor: default; }
+    .steps .step-number { width: 23px; height: 23px; border-color: var(--line); }
+    .steps .is-done .step-number { border-color: #b77c9780; color: var(--rose); }
+    .steps [aria-current="step"] .step-number { background: var(--rose); color: #fffaf5; border-color: var(--rose); }
+    .steps [aria-current="step"] .step-link { font-weight: 600; }
+    @keyframes breathe { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-6px) rotate(1deg); } }
+    @keyframes sound { to { transform: scaleY(.35); } }
+    @keyframes radiate { 0% { opacity: 0; transform: scale(.5); } 40% { opacity: 1; } 100% { opacity: 0; transform: scale(1.6); } }
+    @keyframes appear { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes line-in { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fall { 0% { opacity: 0; transform: translate3d(0, -30px, 0) rotate(0); } 12% { opacity: .45; } 85% { opacity: .3; } 100% { opacity: 0; transform: translate3d(var(--drift), 108vh, 0) rotate(230deg); } }
+    @keyframes burst { 0% { opacity: 0; transform: translate3d(0,0,0) rotate(0) scale(.4); } 12% { opacity: .8; } 100% { opacity: 0; transform: translate3d(var(--dx), var(--dy), 0) rotate(var(--turn)) scale(.8); } }
+    .page-hidden .ambient *, .page-hidden .flower-float, .page-hidden .sound-wave i { animation-play-state: paused; }
+    @media (min-width: 700px) {
+      .site-header { padding: 29px 46px 12px; }
+      .brand-name { font-size: 25px; }
+      .brand-note { font-size: 9px; letter-spacing: 2px; }
+      .music-button { padding: 10px 17px; }
+      .experience { padding: 30px 0 20px; }
+      .eyebrow { font-size: 10px; margin-bottom: 19px; letter-spacing: 3px; }
+      .intro-subtitle { font-size: 14px; margin-top: 18px; }
+      .garden { width: min(40vw, 390px); margin-top: -6px; margin-bottom: -11px; }
+      .touch-label { font-size: 14px; }
+      .quiet-note { font-size: 12px; }
+      .steps { font-size: 11px; gap: 17px; }
+      .steps li + li::before { width: 39px; margin-right: 13px; }
+      .site-footer { padding-top: 9px; padding-bottom: 25px; }
+      body:is([data-phase="discover"], [data-phase="wish"]) .experience { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; padding: 36px 20px 45px; }
+      body:is([data-phase="discover"], [data-phase="wish"]) .garden { width: min(40vw, 390px); height: auto; transform: none; margin: 0 auto; }
+      body[data-phase="wish"] .letter { padding: 39px 37px 30px; }
+      .wish-lines { font-size: 15px; }
+      .letter-date { margin-bottom: 23px; }
+      .letter-to { font-size: 22px; }
+      .wish-title { font-size: 46px; }
+      .corner-left { bottom: -10px; left: -20px; }
+      .corner-right { right: -20px; top: 120px; }
+      .personalize { margin-top: 23px; }
+      .discovery { padding: 20px 7px; }
+      .steps { gap: 14px; }
+    }
+    @media (min-width: 1100px) and (min-height: 850px) {
+      .experience { padding-top: 38px; }
+      .intro-title { font-size: 68px; }
+      .garden { width: 420px; }
+      body:is([data-phase="discover"], [data-phase="wish"]) .garden { width: 420px; }
+    }
+    @media (max-width: 360px) {
+      .site-header { padding-left: 16px; padding-right: 16px; }
+      .brand-note { letter-spacing: 1.1px; }
+      .music-button { font-size: 11px; padding-inline: 10px; }
+      .experience { width: calc(100% - 28px); padding-top: 20px; }
+      .eyebrow { font-size: 9px; letter-spacing: 1.5px; }
+      .intro-title { font-size: 32px; }
+      .letter { padding-inline: 22px; }
+      .steps { gap: 5px; font-size: 9px; }
+      .steps li + li::before { width: 10px; margin-right: 2px; }
+      .primary, .secondary { padding-inline: 12px; }
+      .extra-fields { grid-template-columns: 1fr; gap: 4px; }
+    }
+    /* Chỉ transform/opacity được animate; giảm chuyển động cũng bỏ thời gian chờ. */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      .ambient, .burst-layer, .halo { display: none; }
+      .flower-float { transform: none; }
+      .wish-line, .signature, .letter-actions { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body data-phase="closed">
+  <svg class="icons" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="i-flower" viewBox="0 0 32 32"><path d="M16 27C5 27 1 19 3 12c6 0 11 5 13 12C9 17 10 7 16 2c6 5 7 15 0 22 2-7 7-12 13-12 2 7-2 15-13 15Z" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M16 27v4" fill="none" stroke="currentColor"/></symbol>
+      <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13M9 9l11-2"/><ellipse cx="6" cy="18" rx="3" ry="2.5"/><ellipse cx="17" cy="16" rx="3" ry="2.5"/></symbol>
+      <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 16V3m-4 4 4-4 4 4M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.5 4.9a5.5 5.5 0 0 0-7.8 0l-.7.7-.7-.7a5.5 5.5 0 0 0-7.8 7.8L12 21l8.5-8.3a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
+      <symbol id="i-replay" viewBox="0 0 24 24"><path d="M3 10a9 9 0 1 1 1 7M3 4v6h6"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+      <symbol id="i-touch" viewBox="0 0 24 24"><path d="M9 13V5a2 2 0 0 1 4 0v6l1-1a2 2 0 0 1 3 1l1-1a2 2 0 0 1 3 2v5c0 3-2 5-5 5h-3a4 4 0 0 1-3-2l-5-6a2 2 0 0 1 3-2l1 1ZM5 4 3 3m4-1V0"/></symbol>
+      <symbol id="mini-bloom" viewBox="0 0 70 90"><g fill="currentColor"><ellipse cx="35" cy="28" rx="8" ry="20"/><ellipse cx="35" cy="28" rx="8" ry="20" transform="rotate(60 35 35)"/><ellipse cx="35" cy="28" rx="8" ry="20" transform="rotate(120 35 35)"/><ellipse cx="35" cy="28" rx="8" ry="20" transform="rotate(180 35 35)"/><ellipse cx="35" cy="28" rx="8" ry="20" transform="rotate(240 35 35)"/><ellipse cx="35" cy="28" rx="8" ry="20" transform="rotate(300 35 35)"/></g><circle cx="35" cy="35" r="6" fill="#ffecc0"/><path d="M35 55v30m0-10q-17 1-17-12 13-1 17 12" fill="none" stroke="#a0af99" stroke-width="1.2"/></symbol>
+      <symbol id="sprig" viewBox="0 0 210 330"><g fill="none" stroke="currentColor" stroke-width="1.1"><path d="M32 330C18 250 148 172 122 22M61 267C24 238 20 192 31 170c27 24 35 58 30 97ZM79 239c38-5 75-37 76-62-30 2-63 25-76 62ZM108 184c-32-11-52-42-48-68 27 14 44 35 48 68ZM123 131c34-7 54-33 51-57-26 10-44 31-51 57ZM125 82C98 66 91 41 99 22c18 15 26 35 26 60Z"/><path d="M24 309C80 266 165 245 190 166m-67 88c-4-29 8-53 25-60 8 23-2 42-25 60Zm25-16c28 7 47-1 55-20-24-6-43 0-55 20ZM71 283c-7-27-2-47 14-58 13 20 7 40-14 58Z"/></g></symbol>
+    </defs>
+  </svg>
+
+  <div id="ambient" class="ambient" aria-hidden="true"></div>
+  <div id="mini-garden" class="mini-garden" aria-hidden="true"></div>
+  <div id="burst-layer" class="burst-layer" aria-hidden="true"></div>
+  <svg class="corner-art corner-left" viewBox="0 0 210 330" aria-hidden="true"><use href="#sprig"/></svg>
+  <svg class="corner-art corner-right" viewBox="0 0 210 330" aria-hidden="true"><use href="#sprig"/></svg>
+
+  <header class="site-header">
+    <div class="brand" aria-label="Một lời thương, ngày Phụ nữ Việt Nam">
+      <svg class="brand-flower" aria-hidden="true"><use href="#i-flower"/></svg>
+      <div><span class="brand-name">một lời thương</span><span class="brand-note">Ngày Phụ nữ Việt Nam</span></div>
+    </div>
+    <button id="music-toggle" class="music-button" type="button" aria-pressed="false" aria-label="Bật nhạc nền nhẹ nhàng">
+      <svg class="icon" aria-hidden="true"><use href="#i-music"/></svg>
+      <span class="sound-wave" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span id="music-label">Bật nhạc</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="experience" aria-label="Một đóa hoa dành tặng bạn">
+      <div id="intro" class="intro">
+        <div class="intro-copy">
+          <p class="eyebrow">20 / 10 · Một ngày để yêu thương</p>
+          <h1 class="intro-title">Gửi một đóa hoa,<br>thay ngàn <em>lời thương.</em></h1>
+          <p class="intro-subtitle"><span id="intro-recipient" class="recipient">Gửi bạn</span> — một điều nhỏ xinh đang chờ.</p>
+          <form id="personalize-form" class="personalize">
+            <label for="name-input">Tên của bạn là gì</label>
+            <div class="name-row"><input id="name-input" name="to" type="text" placeholder="Nhập tên của bạn…" maxlength="60" autocomplete="given-name"><button class="primary" type="submit">Bắt đầu <span aria-hidden="true">→</span></button></div>
+            <details><summary>Thêm người gửi &amp; chọn lời chúc</summary><div class="extra-fields">
+              <div><label for="from-input">Người gửi</label><input id="from-input" name="from" type="text" placeholder="Tên người gửi (nếu có)" maxlength="60" autocomplete="off"></div>
+              <div><label for="greeting-type">Lời chúc dành cho</label><select id="greeting-type" name="type"><option value="mom">Mẹ &amp; người thân</option><option value="friend" selected>Bạn bè</option><option value="love">Người đặc biệt</option></select></div>
+            </div></details>
+          </form>
+        </div>
+        <p class="bloom-copy">Những điều đẹp đẽ<br>đang dần <em>hé nở.</em><small>Một chút dịu dàng, dành riêng cho bạn.</small></p>
+      </div>
+
+      <div class="garden">
+        <div class="orbit" aria-hidden="true"><span class="orbit-star one">✧</span><span class="orbit-star two">✧</span><span class="orbit-star three">✦</span></div>
+        <div class="halo" aria-hidden="true"></div>
+        <button id="open-flower" class="flower-button" type="button" aria-label="Chạm vào để mở một điều bất ngờ 🌸" aria-describedby="touch-hint">
+          <svg class="flower-art" viewBox="0 0 520 480" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="petal-back" x1="0" y1="0" x2=".15" y2="1"><stop stop-color="#fff7ef"/><stop offset=".45" stop-color="#f2d0d8"/><stop offset="1" stop-color="#ce83a0"/></linearGradient>
+              <linearGradient id="petal-mid" x1="0" y1="0" x2=".2" y2="1"><stop stop-color="#fff9ed"/><stop offset=".5" stop-color="#f4c4d4"/><stop offset="1" stop-color="#cd789a"/></linearGradient>
+              <linearGradient id="petal-front" x1="0" y1="0" x2=".3" y2="1"><stop stop-color="#ffe9e6"/><stop offset=".5" stop-color="#eaa3bd"/><stop offset="1" stop-color="#b9658b"/></linearGradient>
+              <linearGradient id="bowl" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f7c6d5"/><stop offset="1" stop-color="#c97e9b"/></linearGradient>
+              <radialGradient id="ground"><stop stop-color="#977b8a" stop-opacity=".14"/><stop offset="1" stop-color="#977b8a" stop-opacity="0"/></radialGradient>
+            </defs>
+            <ellipse cx="260" cy="441" rx="101" ry="13" fill="url(#ground)"/>
+            <path class="stem" d="M260 334c-5 42 10 60 0 105"/>
+            <path class="leaf" d="M263 400c-24-30-57-22-66-37 7 32 34 44 66 37Z"/>
+            <path d="M263 400q-25-22-57-31" fill="none" stroke="#81917d" stroke-width=".9"/>
+            <path class="leaf" d="M263 383c11-28 41-31 48-46 4 27-18 46-48 46Z"/>
+            <path d="M263 383q18-24 40-37" fill="none" stroke="#81917d" stroke-width=".9"/>
+            <g class="flower-float">
+              <!-- Ba lớp cánh: mỗi nhóm xoay quanh chân cánh hoa. -->
+              <g class="petal" style="--closed:-13deg;--open:-85deg;--delay:0s;--sx:.95;--sy:1.04" fill="url(#petal-back)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q-20-85 0-190"/></g>
+              <g class="petal" style="--closed:13deg;--open:85deg;--delay:.08s;--sx:.95;--sy:1.04" fill="url(#petal-back)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q20-85 0-190"/></g>
+              <g class="petal" style="--closed:-10deg;--open:-60deg;--delay:.15s;--sx:1.04" fill="url(#petal-back)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q-20-85 0-190"/></g>
+              <g class="petal" style="--closed:10deg;--open:60deg;--delay:.23s;--sx:1.04" fill="url(#petal-back)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q20-85 0-190"/></g>
+              <g class="petal" style="--closed:-6deg;--open:-33deg;--delay:.32s" fill="url(#petal-back)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q-20-85 0-190"/></g>
+              <g class="petal" style="--closed:6deg;--open:33deg;--delay:.4s" fill="url(#petal-back)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q20-85 0-190"/></g>
+              <g class="petal" style="--closed:0deg;--open:0deg;--delay:.48s;--sx:.92;--sy:1.06" fill="url(#petal-back)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q-20-85 0-190"/></g>
+              <g class="petal" style="--closed:-8deg;--open:-65deg;--delay:.65s;--sx:.83;--sy:.83" fill="url(#petal-mid)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q-20-85 0-190"/></g>
+              <g class="petal" style="--closed:8deg;--open:65deg;--delay:.72s;--sx:.83;--sy:.83" fill="url(#petal-mid)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q20-85 0-190"/></g>
+              <g class="petal" style="--closed:-4deg;--open:-34deg;--delay:.85s;--sx:.85;--sy:.84" fill="url(#petal-mid)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q-20-85 0-190"/></g>
+              <g class="petal" style="--closed:4deg;--open:34deg;--delay:.92s;--sx:.85;--sy:.84" fill="url(#petal-mid)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q20-85 0-190"/></g>
+              <g class="petal" style="--closed:0deg;--open:0deg;--delay:1s;--sx:.79;--sy:.87" fill="url(#petal-mid)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q-20-85 0-190"/></g>
+              <g class="petal inner" style="--closed:-3deg;--open:-29deg;--delay:1.1s;--sx:.67;--sy:.62" fill="url(#petal-front)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q-20-85 0-190"/></g>
+              <g class="petal inner" style="--closed:3deg;--open:29deg;--delay:1.2s;--sx:.67;--sy:.62" fill="url(#petal-front)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q20-85 0-190"/></g>
+              <g class="petal inner" style="--closed:0deg;--open:0deg;--delay:1.3s;--sx:.61;--sy:.65" fill="url(#petal-front)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q-20-85 0-190"/></g>
+              <g class="flower-heart"><ellipse cx="260" cy="321" rx="24" ry="8" fill="#e8c27f"/><g fill="#fff2bb"><circle cx="244" cy="318" r="2"/><circle cx="253" cy="315" r="2"/><circle cx="264" cy="316" r="2"/><circle cx="275" cy="319" r="2"/><circle cx="259" cy="322" r="2"/></g></g>
+              <g class="calyx"><path d="M187 301c27 4 46 16 73 37 27-21 46-33 73-37-10 34-42 54-73 54s-63-20-73-54Z" fill="url(#bowl)" stroke="#b9678866" stroke-width="1"/><path d="M199 309q37 33 61 35 26-3 61-35" fill="none" stroke="#ffe7e780"/></g>
+            </g>
+          </svg>
+        </button>
+      </div>
+
+      <div id="invitation" class="invitation">
+        <div class="touch-copy"><p id="touch-hint" class="touch-label"><svg class="icon" aria-hidden="true"><use href="#i-touch"/></svg>Chạm vào để mở một điều bất ngờ 🌸</p><p class="quiet-note">Một bông hoa nhỏ. Một tấm lòng thật lớn.</p></div>
+        <p class="opening-note">Có những yêu thương, chỉ cần một đóa hoa để nói…</p>
+      </div>
+
+      <section id="discovery" class="discovery" aria-labelledby="discovery-title" hidden>
+        <p class="chapter-label">Chặng 03 · Khu vườn những điều nhỏ</p>
+        <h1 id="discovery-title" class="discovery-title" tabindex="-1">Nhặt một chút dịu dàng,<br>mang theo trong ngày.</h1>
+        <p id="discovery-lead" class="discovery-lead">Có ba điều tốt lành đang chờ bạn. Chạm từng bông hoa để hé mở nhé.</p>
+        <div class="keepsakes">
+          <button class="keepsake" type="button" data-keepsake="0" aria-expanded="false" aria-controls="keepsake-note-0"><svg class="keepsake-flower" viewBox="0 0 70 90" aria-hidden="true"><use href="#mini-bloom"/></svg><span><span class="keepsake-title">Một chút bình yên</span><span class="keepsake-hint">Một khoảng thở dành riêng cho bạn</span><span id="keepsake-note-0" class="keepsake-note" hidden></span></span><span class="keepsake-sign" aria-hidden="true">+</span></button>
+          <button class="keepsake" type="button" data-keepsake="1" aria-expanded="false" aria-controls="keepsake-note-1"><svg class="keepsake-flower" viewBox="0 0 70 90" aria-hidden="true"><use href="#mini-bloom"/></svg><span><span class="keepsake-title">Một chút tự tin</span><span class="keepsake-hint">Một lời nhắc cho những dự định</span><span id="keepsake-note-1" class="keepsake-note" hidden></span></span><span class="keepsake-sign" aria-hidden="true">+</span></button>
+          <button class="keepsake" type="button" data-keepsake="2" aria-expanded="false" aria-controls="keepsake-note-2"><svg class="keepsake-flower" viewBox="0 0 70 90" aria-hidden="true"><use href="#mini-bloom"/></svg><span><span class="keepsake-title">Một chút niềm vui</span><span class="keepsake-hint">Một điều nhỏ để mỉm cười</span><span id="keepsake-note-2" class="keepsake-note" hidden></span></span><span class="keepsake-sign" aria-hidden="true">+</span></button>
+        </div>
+        <p id="explore-count" class="explore-count" role="status">0/3 điều tốt lành đã được mở.</p>
+        <button id="receive-wish" class="primary" type="button">Mở lá thư dành cho bạn <span aria-hidden="true">→</span></button>
+        <button id="edit-name" class="replay" type="button">← Sửa tên của bạn</button>
+      </section>
+
+      <article id="letter" class="letter" aria-labelledby="wish-title" hidden>
+        <div class="letter-date">Ngày Phụ nữ Việt Nam</div>
+        <p id="letter-to" class="letter-to">Gửi bạn,</p>
+        <h1 id="wish-title" class="wish-title" tabindex="-1">Chúc mừng <span>20/10</span></h1>
+        <div class="letter-rule" aria-hidden="true"><svg class="icon"><use href="#i-heart"/></svg></div>
+        <div id="wish-lines" class="wish-lines"></div>
+        <p id="keepsake-summary" class="keepsake-summary" hidden></p>
+        <p id="signature" class="signature">Với thật nhiều yêu thương ♡</p>
+        <div class="letter-actions">
+          <button id="share-button" class="primary" type="button"><svg class="icon" aria-hidden="true"><use href="#i-share"/></svg>Chia sẻ lời chúc</button>
+          <button id="create-button" class="secondary" type="button"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg>Gửi lời chúc lại</button>
+        </div>
+        <button id="replay-button" class="replay" type="button"><svg class="icon" aria-hidden="true"><use href="#i-replay"/></svg>Khám phá lại từ đầu</button>
+      </article>
+    </section>
+    <noscript><p class="no-js">Chúc mừng ngày Phụ nữ Việt Nam 20/10! Chúc bạn luôn bình an, vui khỏe và được yêu thương. Bật JavaScript để mở đóa hoa và nhận lời chúc riêng nhé.</p></noscript>
+  </main>
+
+  <footer class="site-footer">
+    <p class="journey-label">Hành trình của bạn</p>
+    <ol class="steps" aria-label="Hành trình lời chúc">
+      <li id="step-1" aria-current="step"><button class="step-link" type="button" data-step="1"><span class="step-number">01</span>Tên của bạn</button></li>
+      <li id="step-2"><button class="step-link" type="button" data-step="2" disabled><span class="step-number">02</span>Hoa nở</button></li>
+      <li id="step-3"><button class="step-link" type="button" data-step="3" disabled><span class="step-number">03</span>Khám phá</button></li>
+      <li id="step-4"><button class="step-link" type="button" data-step="4" disabled><span class="step-number">04</span>Lời chúc</button></li>
+    </ol>
+    <p class="footer-note">Dành cho những người phụ nữ làm thế giới dịu dàng hơn. <span>♡</span></p>
+  </footer>
+
+  <!-- Thẻ audio mặc định tắt. Thay link tại MUSIC_URL trong script bên dưới. -->
+  <audio id="background-music" loop preload="none" aria-label="Nhạc piano nền nhẹ nhàng"></audio>
+  <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+  <div id="toast" class="toast" role="status" hidden></div>
+
+  <dialog id="create-dialog" aria-labelledby="create-title">
+    <div class="dialog-top"><h2 id="create-title">Gửi tiếp một lời thương</h2><button class="close-dialog" type="button" aria-label="Đóng"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <p class="dialog-description">Một đóa hoa nữa, dành cho người bạn yêu quý.</p>
+    <form id="create-form">
+      <label for="recipient-input">Gửi đến</label><input id="recipient-input" name="to" placeholder="Mẹ, chị, bạn thân…" maxlength="60" autocomplete="off">
+      <label for="sender-input">Tên của bạn</label><input id="sender-input" name="from" placeholder="Để người nhận biết ai đang thương mình" maxlength="60" autocomplete="given-name">
+      <label for="type-input">Chọn lời chúc</label><select id="type-input" name="type"><option value="mom">Cho mẹ &amp; người thân</option><option value="friend" selected>Cho bạn bè</option><option value="love">Cho người đặc biệt</option></select>
+      <button class="primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-share"/></svg>Tạo &amp; chia sẻ lời chúc</button>
+    </form>
+  </dialog>
+
+  <dialog id="copy-dialog" aria-labelledby="copy-title">
+    <div class="dialog-top"><h2 id="copy-title">Gửi một đóa hoa</h2><button class="close-dialog" type="button" aria-label="Đóng"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <p id="copy-description" class="dialog-description">Sao chép đường dẫn bên dưới và gửi cho người bạn yêu quý.</p>
+    <label for="share-url">Đường dẫn lời chúc</label><input id="share-url" class="copy-field" type="text" readonly spellcheck="false">
+    <button id="copy-button" class="primary" type="button">Sao chép đường dẫn</button>
+    <p id="manual-help" class="manual-help" hidden>Chạm giữ đường dẫn, chọn “Sao chép”, rồi dán vào tin nhắn.</p>
+  </dialog>
+
+  <script>
+    (() => {
+      "use strict";
+      const $ = (id) => document.getElementById(id);
+      const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      // ĐỔI LINK NHẠC Ở ĐÂY: dùng URL HTTPS trỏ thẳng đến file MP3/OGG/WAV.
+      // Ví dụ: const MUSIC_URL = "https://ten-mien-cua-ban.vn/piano.mp3";
+      // Để trống: trang tự tạo một đoạn piano nhỏ, không cần mạng hay thư viện.
+      const MUSIC_URL = "";
+
+      // SỬA LỜI CHÚC Ở ĐÂY. Mỗi nhóm có nhiều mẫu, mỗi mẫu là 5 dòng.
+      // Có thể thêm mẫu vào từng nhóm; {name} lấy từ ô nhập hoặc URL.
+      const WISHES = {
+        mom: [
+          [
+          "Chúc {name} một ngày 20/10 thật vui và ấm áp.",
+          "Cảm ơn vì những quan tâm, cả những điều nhỏ bé thường ngày.",
+          "Mong {name} luôn khỏe mạnh, bình an và có thêm thời gian cho mình.",
+          "Những vất vả rồi sẽ nhẹ hơn, những niềm vui sẽ đến nhiều hơn.",
+          "Hôm nay và mọi ngày, {name} luôn được yêu thương."
+          ],
+          [
+            "Gửi {name} một đóa hoa và lời chúc thật chân thành.",
+            "Mong hôm nay có một bữa cơm ngon, một giấc ngủ yên và nhiều tiếng cười.",
+            "Cảm ơn vì luôn là một phần ấm áp của gia đình.",
+            "Chúc {name} có thêm những ngày thong thả, được làm điều mình thích.",
+            "Mỗi ngày đều mong {name} vui khỏe và nhẹ lòng."
+          ],
+          [
+            "Ngày 20/10, chúc {name} nhận được nhiều quan tâm và những cái ôm.",
+            "Những điều {name} đã dành cho gia đình luôn được ghi nhớ.",
+            "Mong sức khỏe thật tốt, lòng thật an và ngày nào cũng có niềm vui.",
+            "Nhớ chăm sóc bản thân nhiều như cách vẫn chăm sóc mọi người nhé.",
+            "Gửi {name} thật nhiều thương mến, hôm nay và những ngày sau."
+          ]
+        ],
+        friend: [
+          [
+          "Chúc bạn một ngày 20/10 đầy những niềm vui nho nhỏ.",
+          "Mong bạn luôn có sức khỏe và tự tin với con đường mình chọn.",
+          "Có người lắng nghe, có nơi để về, có điều để mong đợi.",
+          "Nhớ dành cho mình một chút nghỉ ngơi và thật nhiều dịu dàng.",
+          "Thật vui vì cuộc đời này có một người bạn như bạn."
+          ],
+          [
+            "Chúc {name} hôm nay có một lý do thật vui để mỉm cười.",
+            "Mong những dự định đang ấp ủ sẽ dần thành hình, theo nhịp của bạn.",
+            "Những lúc cần nghỉ, cứ cho mình một khoảng thở nhé.",
+            "Hy vọng bạn luôn gặp những người tử tế và có nhiều cuộc hẹn vui.",
+            "Cảm ơn vì đã là một người bạn đáng quý. Chúc mừng 20/10!"
+          ],
+          [
+            "Một ngày 20/10 thật dễ chịu nhé, {name}.",
+            "Chúc bạn đủ năng lượng cho điều mình yêu, đủ bình yên sau một ngày dài.",
+            "Có những cuộc trò chuyện hợp ý và những cuối tuần thật thảnh thơi.",
+            "Mong bạn luôn được trân trọng, và cũng thật hào phóng với chính mình.",
+            "Gửi một chút may mắn đến mọi hành trình sắp tới của bạn."
+          ]
+        ],
+        love: [
+          [
+          "Chúc người đặc biệt của mình một ngày 20/10 thật vui.",
+          "Cảm ơn vì đã khiến những ngày bình thường trở nên đáng nhớ.",
+          "Mong bạn luôn được làm điều mình thích, sống theo cách mình muốn.",
+          "Những ngày mệt mỏi, hy vọng mình có thể ở bên và lắng nghe.",
+          "Chúc chúng mình còn nhiều ngày bình yên cùng nhau."
+          ],
+          [
+            "Gửi {name}, người làm mình muốn dành thêm thời gian cho những điều nhỏ.",
+            "Chúc bạn một ngày 20/10 được quan tâm theo đúng cách mình mong.",
+            "Mong mọi dự định của bạn đều có người ủng hộ, trong đó có mình.",
+            "Cảm ơn những lần lắng nghe, những cuộc hẹn và cả sự kiên nhẫn.",
+            "Hy vọng chúng mình sẽ cùng có thêm nhiều kỷ niệm vui."
+          ],
+          [
+            "Ngày 20/10, gửi bạn một đóa hoa và một lời cảm ơn.",
+            "Cảm ơn vì đã ở đây, cùng chia sẻ những chuyện rất đỗi thường ngày.",
+            "Mong bạn khỏe, vui và luôn có đủ không gian cho ước mơ riêng.",
+            "Khi cần một người bên cạnh, mong mình có thể là người ấy.",
+            "Chúc {name} hôm nay thật ấm áp, và ngày mai cũng vậy."
+          ]
+        ]
+      };
+
+      // SỬA CÁC LỜI NHẮN TRÊN HÀNH TRÌNH Ở ĐÂY.
+      const KEEPSAKES = [
+        { name: "Bình yên", notes: ["Bạn không cần làm xong tất cả hôm nay. Một tách trà và vài phút nghỉ cũng là điều đáng dành cho mình.", "Mong bạn có một nơi thật yên, được thở chậm lại và không cần vội vàng.", "Có những ngày chỉ cần ăn một bữa ngon, ngủ một giấc đủ và thấy lòng nhẹ hơn."] },
+        { name: "Tự tin", notes: ["Mỗi bước nhỏ bạn đang đi đều có ý nghĩa. Cứ bắt đầu từ điều vừa sức hôm nay nhé.", "Bạn có quyền thử một điều mới, đổi ý và chọn con đường phù hợp hơn với mình.", "Mong bạn nhìn thấy cả những điều mình đã làm được, kể cả những điều chưa ai kịp nói lời cảm ơn."] },
+        { name: "Niềm vui", notes: ["Hôm nay, thử tự tặng mình một điều nhỏ: món bánh thích ăn, một bài nhạc hay, một cuộc hẹn vui.", "Chúc bạn gặp một chuyện dễ thương bất ngờ, đủ để mỉm cười thêm một lúc.", "Một tin nhắn hỏi thăm, một bông hoa ven đường — mong ngày của bạn có nhiều điều nhỏ đáng nhớ."] }
+      ];
+
+      // URLSearchParams đọc đúng dấu tiếng Việt; textContent ngăn chèn HTML từ URL.
+      const params = new URLSearchParams(window.location.search);
+      function cleanName(value) {
+        return [...(value || "").replace(/[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/g, "").trim()].slice(0, 60).join("");
+      }
+      let recipient = cleanName(params.get("to"));
+      let sender = cleanName(params.get("from"));
+      let type = Object.hasOwn(WISHES, params.get("type")) ? params.get("type") : "friend";
+      let salutation;
+      let wishIndex = -1;
+      const lastWish = { mom: -1, friend: -1, love: -1 };
+      const collected = new Set();
+      const lastNotes = [-1, -1, -1];
+      let phase = "closed";
+      let unlockedStep = 1;
+      let bloomTimer;
+      let burstTimer;
+      let toastTimer;
+      let copyTarget = "";
+
+      // Chọn ngẫu nhiên trong các mẫu còn lại, tránh lặp mẫu vừa xem.
+      function randomIndex(length, previous) {
+        if (length < 2) return 0;
+        if (previous < 0) return Math.floor(Math.random() * length);
+        const index = Math.floor(Math.random() * (length - 1));
+        return index >= previous ? index + 1 : index;
+      }
+      function renderWish(randomize = false) {
+        if (randomize || wishIndex < 0) {
+          wishIndex = randomIndex(WISHES[type].length, lastWish[type]);
+          lastWish[type] = wishIndex;
+        }
+        const fragment = document.createDocumentFragment();
+        WISHES[type][wishIndex].forEach((text, index) => {
+          const line = document.createElement("p");
+          line.className = "wish-line";
+          line.style.setProperty("--line-delay", `${.1 + index * .22}s`);
+          line.textContent = text.replaceAll("{name}", recipient || (type === "mom" ? "người thân yêu" : "bạn"));
+          fragment.appendChild(line);
+        });
+        $("wish-lines").replaceChildren(fragment);
+      }
+      function updateNames() {
+        salutation = recipient ? `Gửi ${recipient}` : "Gửi bạn";
+        $("intro-recipient").textContent = salutation;
+        $("letter-to").textContent = `${salutation},`;
+        $("signature").textContent = sender ? `Từ ${sender} ♡` : "Với thật nhiều yêu thương ♡";
+        $("discovery-lead").textContent = recipient ? `${recipient} ơi, có ba điều tốt lành đang chờ. Chạm từng bông hoa để hé mở nhé.` : "Có ba điều tốt lành đang chờ bạn. Chạm từng bông hoa để hé mở nhé.";
+        document.title = recipient ? `${salutation} · Chúc mừng 20/10` : "Một đóa hoa, một lời thương · 20/10";
+      }
+      function makeShareURL() {
+        const url = new URL(location.href);
+        url.search = ""; url.hash = "";
+        if (recipient) url.searchParams.set("to", recipient);
+        if (sender) url.searchParams.set("from", sender);
+        url.searchParams.set("type", type);
+        // Mỗi lượt mở trang tự chọn một lời chúc, không cố định mẫu trong link.
+        return url.href;
+      }
+      function syncURL() {
+        try { history.replaceState(null, "", makeShareURL()); }
+        catch { /* File offline vẫn dùng được nếu trình duyệt chặn đổi URL. */ }
+      }
+      $("name-input").value = recipient;
+      $("from-input").value = sender;
+      $("greeting-type").value = type;
+      updateNames();
+      // Tự chọn khi mở trang; chọn lại khi bắt đầu một hành trình mới.
+      renderWish();
+      function applyPersonalization() {
+        recipient = cleanName($("name-input").value);
+        sender = cleanName($("from-input").value);
+        const nextType = $("greeting-type").value;
+        const typeChanged = type !== nextType;
+        type = Object.hasOwn(WISHES, nextType) ? nextType : "friend";
+        updateNames();
+        renderWish(typeChanged);
+        syncURL();
+      }
+      $("name-input").addEventListener("input", applyPersonalization);
+      $("from-input").addEventListener("input", applyPersonalization);
+      $("greeting-type").addEventListener("change", applyPersonalization);
+      $("personalize-form").addEventListener("submit", (event) => { event.preventDefault(); openFlower(); });
+      function toast(message) {
+        clearTimeout(toastTimer);
+        $("toast").textContent = message;
+        $("toast").hidden = false;
+        toastTimer = setTimeout(() => { $("toast").hidden = true; }, 4200);
+      }
+      function setStep(number) {
+        unlockedStep = Math.max(unlockedStep, number);
+        for (let index = 1; index <= 4; index++) {
+          const step = $(`step-${index}`);
+          if (index === number) step.setAttribute("aria-current", "step");
+          else step.removeAttribute("aria-current");
+          step.classList.toggle("is-done", index < unlockedStep);
+          step.querySelector("button").disabled = index > unlockedStep || phase === "opening";
+        }
+      }
+      function showDiscovery() {
+        clearTimeout(bloomTimer);
+        clearTimeout(burstTimer);
+        phase = "discover";
+        document.body.dataset.phase = phase;
+        document.body.classList.remove("blooming");
+        document.body.classList.add("bloomed");
+        $("intro").hidden = true;
+        $("invitation").hidden = true;
+        $("letter").hidden = true;
+        $("discovery").hidden = false;
+        $("open-flower").disabled = true;
+        setStep(3);
+        $("discovery-title").focus({ preventScroll: true });
+      }
+      function revealLetter() {
+        phase = "wish";
+        document.body.dataset.phase = phase;
+        document.body.classList.remove("blooming");
+        document.body.classList.add("bloomed");
+        $("intro").hidden = true;
+        $("invitation").hidden = true;
+        $("discovery").hidden = true;
+        $("letter").hidden = false;
+        $("open-flower").disabled = true;
+        setStep(4);
+        $("wish-title").focus({ preventScroll: true });
+        // Sau khi đọc các lời nhắn ở cuối màn, đưa lá thư mới trở lại tầm nhìn.
+        window.scrollTo({ top: 0, behavior: "instant" });
+      }
+      function openFlower() {
+        if (phase !== "closed") return;
+        phase = "opening";
+        document.body.dataset.phase = phase;
+        document.body.classList.add("blooming");
+        $("open-flower").disabled = true;
+        $("announcement").textContent = "Đóa hoa đang nở. Khu vườn những điều nhỏ đang chờ bạn khám phá.";
+        setStep(2);
+        if (motion.matches) showDiscovery();
+        else {
+          burstTimer = setTimeout(createBurst, 1000);
+          // Cánh cuối nở xong ở 4.1s; mở chặng khám phá sau 4.3s.
+          bloomTimer = setTimeout(showDiscovery, 4300);
+        }
+      }
+      $("open-flower").addEventListener("click", openFlower);
+      function returnToIntro(focusName = false) {
+        clearTimeout(bloomTimer);
+        clearTimeout(burstTimer);
+        phase = "closed";
+        document.body.dataset.phase = phase;
+        document.body.classList.remove("blooming", "bloomed");
+        $("letter").hidden = true;
+        $("discovery").hidden = true;
+        $("intro").hidden = false;
+        $("invitation").hidden = false;
+        $("open-flower").disabled = false;
+        $("burst-layer").replaceChildren();
+        $("announcement").textContent = "Bạn có thể chạm vào nụ hoa để ngắm hoa nở lần nữa.";
+        setStep(1);
+        (focusName ? $("name-input") : $("open-flower")).focus({ preventScroll: true });
+        window.scrollTo({ top: 0, behavior: "instant" });
+      }
+      function updateCollected() {
+        $("explore-count").textContent = collected.size === 3 ? "Đã mở đủ 3 điều tốt lành. Lá thư của bạn đang chờ! ♡" : `${collected.size}/3 điều tốt lành đã được mở.`;
+        $("keepsake-summary").hidden = collected.size === 0;
+        $("keepsake-summary").textContent = `Mang theo một chút: ${[...collected].map((index) => KEEPSAKES[index].name.toLowerCase()).join(" · ")}.`;
+      }
+      document.querySelectorAll("[data-keepsake]").forEach((button) => {
+        button.dataset.originalHint = button.querySelector(".keepsake-hint").textContent;
+        button.addEventListener("click", () => {
+          const index = Number(button.dataset.keepsake);
+          const note = $(`keepsake-note-${index}`);
+          if (collected.has(index)) {
+            const expanded = button.getAttribute("aria-expanded") !== "true";
+            button.setAttribute("aria-expanded", String(expanded));
+            note.hidden = !expanded;
+            button.querySelector(".keepsake-sign").textContent = expanded ? "−" : "+";
+            return;
+          }
+          const noteIndex = randomIndex(KEEPSAKES[index].notes.length, lastNotes[index]);
+          lastNotes[index] = noteIndex;
+          note.textContent = KEEPSAKES[index].notes[noteIndex];
+          note.hidden = false;
+          button.setAttribute("aria-expanded", "true");
+          button.querySelector(".keepsake-sign").textContent = "−";
+          button.querySelector(".keepsake-hint").textContent = "Một điều tốt lành dành cho bạn";
+          collected.add(index);
+          updateCollected();
+        });
+      });
+      $("receive-wish").addEventListener("click", revealLetter);
+      $("edit-name").addEventListener("click", () => returnToIntro(true));
+      $("replay-button").addEventListener("click", () => {
+        collected.clear();
+        unlockedStep = 1;
+        document.querySelectorAll("[data-keepsake]").forEach((button) => {
+          button.setAttribute("aria-expanded", "false");
+          $(`keepsake-note-${button.dataset.keepsake}`).hidden = true;
+          button.querySelector(".keepsake-sign").textContent = "+";
+          button.querySelector(".keepsake-hint").textContent = button.dataset.originalHint;
+        });
+        updateCollected();
+        renderWish(true);
+        syncURL();
+        returnToIntro();
+      });
+      document.querySelectorAll("[data-step]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const step = Number(button.dataset.step);
+          if (step > unlockedStep || phase === "opening") return;
+          if (step === 1) returnToIntro(true);
+          if (step === 2) {
+            returnToIntro();
+            requestAnimationFrame(() => requestAnimationFrame(openFlower));
+          }
+          if (step === 3) { showDiscovery(); window.scrollTo({ top: 0, behavior: "instant" }); }
+          if (step === 4) revealLetter();
+        });
+      });
+
+      // Giới hạn hạt trang trí để điện thoại không phải vẽ quá nhiều phần tử.
+      function createAmbient() {
+        $("ambient").replaceChildren();
+        if (motion.matches) return;
+        const fragment = document.createDocumentFragment();
+        for (let index = 0; index < 12; index++) {
+          const particle = document.createElement("span");
+          particle.className = `drifter${index % 3 === 0 ? " sparkle" : ""}`;
+          if (index % 3 === 0) particle.textContent = "✧";
+          const values = { "--x": `${3 + index * 8}%`, "--size": `${7 + index % 4 * 2}px`, "--color": index % 2 ? "#d8b4d8" : "#e4adc1", "--duration": `${15 + index % 5 * 2}s`, "--delay": `${-index * 2.7}s`, "--drift": `${index % 2 ? 38 : -38}px` };
+          Object.entries(values).forEach(([key, value]) => particle.style.setProperty(key, value));
+          fragment.appendChild(particle);
+        }
+        $("ambient").appendChild(fragment);
+      }
+      const miniPositions = [[5,25,45],[85,32,42],[9,65,54],[88,74,48],[22,87,31],[75,13,30]];
+      miniPositions.forEach(([x, y, size], index) => {
+        const flower = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        flower.setAttribute("viewBox", "0 0 70 90");
+        flower.classList.add("mini-flower");
+        const values = { "--x": `${x}%`, "--y": `${y}%`, "--size": `${size}px`, "--delay": `${.7 + index * .3}s`, "--color": index % 2 ? "#b8a0c9" : "#dfa6bd" };
+        Object.entries(values).forEach(([key, value]) => flower.style.setProperty(key, value));
+        const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+        use.setAttribute("href", "#mini-bloom");
+        flower.appendChild(use);
+        $("mini-garden").appendChild(flower);
+      });
+      function createBurst() {
+        if (motion.matches || document.hidden) return;
+        const rect = $("open-flower").getBoundingClientRect();
+        const fragment = document.createDocumentFragment();
+        for (let index = 0; index < 14; index++) {
+          const petal = document.createElement("span");
+          petal.className = "burst-petal";
+          const angle = index * Math.PI * 2 / 14;
+          const distance = Math.min(innerWidth * .42, 260) + index % 3 * 20;
+          const values = { "--x": `${rect.left + rect.width / 2}px`, "--y": `${rect.top + rect.height * .52}px`, "--size": `${8 + index % 4 * 2}px`, "--color": index % 2 ? "#edc1cf" : "#cbb5df", "--dx": `${Math.cos(angle) * distance}px`, "--dy": `${Math.sin(angle) * distance - 35}px`, "--turn": `${100 + index * 29}deg`, "--delay": `${index % 4 * .1}s` };
+          Object.entries(values).forEach(([key, value]) => petal.style.setProperty(key, value));
+          petal.addEventListener("animationend", () => petal.remove(), { once: true });
+          fragment.appendChild(petal);
+        }
+        $("burst-layer").appendChild(fragment);
+      }
+      createAmbient();
+      motion.addEventListener("change", () => {
+        createAmbient();
+        $("burst-layer").replaceChildren();
+        if (motion.matches && phase === "opening") showDiscovery();
+      });
+      document.addEventListener("visibilitychange", () => document.body.classList.toggle("page-hidden", document.hidden));
+
+      // Nhạc piano tổng hợp nguyên bản: tạo WAV mono trong bộ nhớ, phát bằng <audio>.
+      // Chia công việc thành các lượt ngắn để không chặn animation khi trang mở.
+      let musicPromise;
+      let musicObjectURL;
+      function createPianoTrack() {
+        return new Promise((resolve) => {
+          const rate = 22050;
+          const duration = 16;
+          const samples = new Float32Array(rate * duration);
+          const chords = [[48,55,60,64],[45,52,57,60],[41,48,53,57],[43,50,55,59]];
+          const notes = [];
+          chords.forEach((chord, bar) => {
+            chord.forEach((midi, index) => notes.push({ midi, start: bar * 4 + index * .38, length: 3.4, gain: .10 }));
+            [chord[2] + 12, chord[3] + 12, chord[1] + 12].forEach((midi, index) => notes.push({ midi, start: bar * 4 + 1 + index * .8, length: 2, gain: .065 }));
+          });
+          let noteIndex = 0;
+          function renderNext() {
+            const note = notes[noteIndex++];
+            const frequency = 440 * Math.pow(2, (note.midi - 69) / 12);
+            const start = Math.floor(note.start * rate);
+            const count = Math.floor(note.length * rate);
+            for (let index = 0; index < count; index++) {
+              const time = index / rate;
+              const attack = Math.min(time / .018, 1);
+              const release = Math.min((note.length - time) / .4, 1);
+              const envelope = attack * release * Math.exp(-time * 1.45) * note.gain;
+              const angle = 2 * Math.PI * frequency * time;
+              const value = (Math.sin(angle) + .24 * Math.sin(angle * 2) + .07 * Math.sin(angle * 3)) * envelope;
+              samples[(start + index) % samples.length] += value;
+            }
+            if (noteIndex < notes.length) { setTimeout(renderNext, 0); return; }
+            const buffer = new ArrayBuffer(44 + samples.length * 2);
+            const view = new DataView(buffer);
+            const text = (offset, value) => { for (let index = 0; index < value.length; index++) view.setUint8(offset + index, value.charCodeAt(index)); };
+            text(0, "RIFF"); view.setUint32(4, buffer.byteLength - 8, true); text(8, "WAVE"); text(12, "fmt ");
+            view.setUint32(16, 16, true); view.setUint16(20, 1, true); view.setUint16(22, 1, true);
+            view.setUint32(24, rate, true); view.setUint32(28, rate * 2, true); view.setUint16(32, 2, true); view.setUint16(34, 16, true);
+            text(36, "data"); view.setUint32(40, samples.length * 2, true);
+            for (let index = 0; index < samples.length; index++) view.setInt16(44 + index * 2, Math.max(-1, Math.min(1, samples[index])) * 32767, true);
+            musicObjectURL = URL.createObjectURL(new Blob([buffer], { type: "audio/wav" }));
+            resolve(musicObjectURL);
+          }
+          setTimeout(renderNext, 0);
+        });
+      }
+      const audio = $("background-music");
+      audio.volume = .45;
+      function updateMusicState() {
+        const playing = !audio.paused;
+        $("music-toggle").setAttribute("aria-pressed", String(playing));
+        $("music-toggle").setAttribute("aria-label", playing ? "Tắt nhạc nền" : "Bật nhạc nền nhẹ nhàng");
+        $("music-label").textContent = playing ? "Tắt nhạc" : "Bật nhạc";
+      }
+      if (MUSIC_URL) audio.src = MUSIC_URL;
+      else {
+        musicPromise = createPianoTrack();
+        musicPromise.then((url) => { audio.src = url; });
+      }
+      audio.addEventListener("play", updateMusicState);
+      audio.addEventListener("pause", updateMusicState);
+      audio.addEventListener("error", () => { updateMusicState(); toast("Chưa mở được nhạc. Bạn thử lại sau nhé."); });
+      $("music-toggle").addEventListener("click", async () => {
+        if (!audio.paused) { audio.pause(); return; }
+        $("music-toggle").disabled = true;
+        try {
+          if (!MUSIC_URL && !audio.getAttribute("src")) audio.src = await musicPromise;
+          await audio.play();
+        } catch { toast("Chưa mở được nhạc. Chạm nút nhạc để thử lại nhé."); }
+        finally { $("music-toggle").disabled = false; updateMusicState(); }
+      });
+
+      // Web Share API trên điện thoại; clipboard và hộp sao chép cho trình duyệt khác.
+      // Link file:// chỉ dùng trên máy này, nên bản offline chia sẻ nội dung lời chúc.
+      function greetingText() {
+        return `${salutation},\nChúc mừng 20/10!\n\n${[...$("wish-lines").children].map((line) => line.textContent).join("\n")}\n\n${$("signature").textContent}`;
+      }
+      async function copyText(value) {
+        try {
+          if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(value); return true; }
+        } catch { /* Thử cơ chế sao chép tương thích bên dưới. */ }
+        const field = document.createElement("textarea");
+        field.value = value;
+        field.setAttribute("aria-label", "Nội dung cần sao chép");
+        field.style.cssText = "position:fixed;left:0;top:0;width:1px;height:1px;opacity:0;";
+        const focused = document.activeElement;
+        (document.querySelector("dialog[open]") || document.body).appendChild(field);
+        field.focus(); field.select();
+        let copied = false;
+        try { copied = document.execCommand("copy"); } catch { /* Hộp sao chép thủ công luôn còn khả dụng. */ }
+        field.remove();
+        if (focused && focused.focus) focused.focus({ preventScroll: true });
+        return copied;
+      }
+      function showCopyDialog(value) {
+        copyTarget = value;
+        const offline = location.protocol === "file:";
+        $("copy-description").textContent = offline ? "Bạn đang mở file trên máy. Hãy đưa file HTML lên Netlify hoặc GitHub Pages để có đường dẫn gửi cho mọi người." : "Sao chép đường dẫn bên dưới và gửi cho người bạn yêu quý.";
+        $("share-url").value = value;
+        $("copy-button").textContent = "Sao chép đường dẫn";
+        $("manual-help").hidden = true;
+        $("copy-dialog").showModal();
+      }
+      async function shareGreeting(url, text) {
+        const online = /^https?:$/.test(location.protocol);
+        const data = { title: "Một đóa hoa, một lời thương · 20/10", text };
+        if (online) data.url = url;
+        if (typeof navigator.share === "function") {
+          try { await navigator.share(data); return; }
+          catch (error) { if (error.name === "AbortError") return; }
+        }
+        if (!online) {
+          if (await copyText(text)) toast("Đã sao chép lời chúc. Đưa file lên web để chia sẻ bằng link nhé.");
+          else showCopyDialog(url);
+          return;
+        }
+        if (await copyText(url)) toast("Đã sao chép đường dẫn. Gửi một lời thương thôi! ♡");
+        else showCopyDialog(url);
+      }
+      $("share-button").addEventListener("click", () => {
+        shareGreeting(makeShareURL(), greetingText());
+      });
+      $("create-button").addEventListener("click", () => {
+        $("recipient-input").value = sender;
+        $("sender-input").value = recipient;
+        $("type-input").value = type;
+        $("create-dialog").showModal();
+      });
+      $("create-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const url = new URL(location.href);
+        url.search = ""; url.hash = "";
+        const to = cleanName($("recipient-input").value);
+        const from = cleanName($("sender-input").value);
+        if (to) url.searchParams.set("to", to);
+        if (from) url.searchParams.set("from", from);
+        url.searchParams.set("type", $("type-input").value);
+        $("create-dialog").close();
+        if (location.protocol === "file:") showCopyDialog(url.href);
+        else shareGreeting(url.href, `${to ? `Gửi ${to}` : "Gửi bạn"} một đóa hoa và lời chúc 20/10${from ? `, từ ${from}` : ""}. 🌸`);
+      });
+      $("copy-button").addEventListener("click", async () => {
+        if (await copyText(copyTarget)) { $("copy-button").textContent = "Đã sao chép ♡"; $("manual-help").hidden = true; }
+        else { $("manual-help").hidden = false; $("share-url").focus(); $("share-url").select(); }
+      });
+      document.querySelectorAll("dialog").forEach((dialog) => {
+        dialog.querySelector(".close-dialog").addEventListener("click", () => dialog.close());
+        dialog.addEventListener("click", (event) => {
+          if (event.target !== dialog) return;
+          const rect = dialog.getBoundingClientRect();
+          if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
