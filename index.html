@@ -40,10 +40,10 @@
       line-height: 1.65;
       overflow-x: clip;
     }
-    button, input, select { font: inherit; }
+    button, input { font: inherit; }
     button { color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-    button, a, input, select { touch-action: manipulation; }
-    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+    button, a, input { touch-action: manipulation; }
+    button:focus-visible, a:focus-visible, input:focus-visible {
       outline: 3px solid var(--rose);
       outline-offset: 5px;
     }
@@ -217,8 +217,7 @@
     .close-dialog { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; margin: -10px -12px 0 0; background: transparent; border: 0; border-radius: 50%; }
     .dialog-description { font-size: 13px; color: var(--muted); margin: 12px 0 22px; }
     label { display: block; font-size: 12px; margin: 14px 0 6px; color: var(--rose-dark); }
-    input, select { width: 100%; min-height: 46px; border: 1px solid #c6a5b4; border-radius: 8px; padding: 10px 12px; background: #fffdfa; color: var(--ink); font-size: 16px; }
-    select { padding-right: 25px; }
+    input { width: 100%; min-height: 46px; border: 1px solid #c6a5b4; border-radius: 8px; padding: 10px 12px; background: #fffdfa; color: var(--ink); font-size: 16px; }
     dialog .primary { width: 100%; margin-top: 23px; }
     .copy-field { font-size: 13px; }
     .manual-help { margin: 10px 0 0; font-size: 12px; color: var(--muted); }
@@ -230,9 +229,9 @@
     .name-row .primary { flex-shrink: 0; padding-inline: 18px; }
     .personalize details { margin-top: 2px; }
     .personalize summary { width: fit-content; min-height: 38px; padding-block: 9px; font-size: 11px; color: var(--muted); cursor: pointer; }
-    .extra-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 0 12px; }
+    .extra-fields { display: grid; grid-template-columns: 1fr; gap: 12px; padding: 0 0 12px; }
     .extra-fields label { margin-top: 2px; font-size: 11px; }
-    .extra-fields input, .extra-fields select { font-size: 16px; }
+    .extra-fields input { font-size: 16px; }
     .discovery { width: 100%; padding: 20px 7px 25px; }
     body[data-phase="discover"] .discovery { animation: appear .7s both; }
     .chapter-label { margin: 0 0 10px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--rose); }
@@ -245,6 +244,7 @@
     .keepsake-flower { width: 42px; height: 52px; color: #c190ac; transform: scale(.78); transition: transform .7s cubic-bezier(.2,.7,.3,1); }
     .keepsake:nth-child(2) .keepsake-flower { color: #af9ac7; }
     .keepsake:nth-child(3) .keepsake-flower { color: #c8a275; }
+    .keepsake:nth-child(4) .keepsake-flower { color: #c28d9c; }
     .keepsake[aria-expanded="true"] .keepsake-flower { transform: scale(1) rotate(12deg); }
     .keepsake-title { display: block; color: var(--rose-dark); font: 400 19px/1.4 var(--serif); }
     .keepsake-hint { display: block; margin-top: 2px; font-size: 11px; color: var(--muted); }
@@ -265,6 +265,31 @@
     .steps .is-done .step-number { border-color: #b77c9780; color: var(--rose); }
     .steps [aria-current="step"] .step-number { background: var(--rose); color: #fffaf5; border-color: var(--rose); }
     .steps [aria-current="step"] .step-link { font-weight: 600; }
+    .finale-open { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 49px; margin-top: 18px; padding: 12px 16px; border: 1px solid #bd829e70; border-radius: 30px; background: #f4e3ec; color: var(--rose-dark); font-size: 13px; }
+    .finale-open:hover { background: #eed4e3; }
+    .finale-open .icon { width: 19px; height: 19px; }
+    .finale { position: fixed; z-index: 5; inset: 0; overflow-x: hidden; overflow-y: auto; isolation: isolate; background: radial-gradient(ellipse at 50% 17%, #fffdf0 0, #fff6ec8c 24%, transparent 58%), linear-gradient(150deg, #f9e7ed, #eee7f8 60%, #e2eacb); }
+    .finale::after { content: ""; position: fixed; z-index: 0; pointer-events: none; inset: 0; background: linear-gradient(#fff6ed26 30%, transparent 70%); }
+    .finale-canvas { position: fixed; z-index: -1; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .finale-content { position: relative; z-index: 1; width: min(100% - 40px, 720px); margin: clamp(112px, 17vh, 180px) auto 35vh; text-align: center; animation: appear .9s both; }
+    .finale-eyebrow { margin: 0 0 15px; color: var(--rose); font-size: 10px; letter-spacing: 2.8px; text-transform: uppercase; }
+    .finale-title { margin: 0; color: var(--rose-dark); font: 400 clamp(37px, 7.4vw, 75px)/1.13 var(--serif); letter-spacing: -1.2px; }
+    .finale-title em { color: var(--rose); font-weight: 400; }
+    .finale-recipient { overflow-wrap: anywhere; }
+    .finale-note { max-width: 380px; margin: 20px auto 0; color: var(--ink); font-size: 14px; line-height: 1.8; }
+    .finale-signature { margin: 10px 0 0; color: var(--rose-dark); font: italic 20px/1.5 var(--serif); overflow-wrap: anywhere; }
+    .finale-actions { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+    .finale-actions .secondary { background: #fff9f0c9; }
+    .finale .replay { color: var(--rose-dark); }
+    .finale-fallback { position: fixed; z-index: -1; inset: 48% 0 0; display: grid; grid-template-columns: repeat(8, 1fr); align-items: end; pointer-events: none; }
+    .finale-fallback svg { width: 100%; color: #c28d9c; }
+    .finale-fallback svg:nth-child(3n) { color: #b29bc9; transform: translateY(20%); }
+    .finale-fallback svg:nth-child(3n + 1) { color: #dbb779; transform: translateY(-20%); }
+    body[data-phase="finale"] { overflow: hidden; }
+    body[data-phase="finale"] .site-header { position: fixed; z-index: 6; top: 0; left: 0; right: 0; width: 100%; }
+    body[data-phase="finale"] .site-footer { display: none; }
+    body[data-phase="finale"] :is(.ambient, .mini-garden, .corner-art, .burst-layer) { visibility: hidden; }
+    body[data-phase="finale"] .toast { z-index: 20; }
     @keyframes breathe { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-6px) rotate(1deg); } }
     @keyframes sound { to { transform: scaleY(.35); } }
     @keyframes radiate { 0% { opacity: 0; transform: scale(.5); } 40% { opacity: 1; } 100% { opacity: 0; transform: scale(1.6); } }
@@ -318,6 +343,15 @@
       .steps li + li::before { width: 10px; margin-right: 2px; }
       .primary, .secondary { padding-inline: 12px; }
       .extra-fields { grid-template-columns: 1fr; gap: 4px; }
+      .finale-content { width: calc(100% - 30px); }
+      .finale-title { font-size: 35px; }
+      .finale-actions { gap: 8px; }
+    }
+    @media (max-height: 600px) and (orientation: landscape) {
+      .finale-content { margin-top: 94px; margin-bottom: 55vh; }
+      .finale-title { font-size: 39px; }
+      .finale-note { margin-top: 12px; }
+      .finale-actions { margin-top: 14px; }
     }
     
     @media (prefers-reduced-motion: reduce) {
@@ -371,9 +405,8 @@
           <form id="personalize-form" class="personalize">
             <label for="name-input">Tên của bạn là gì</label>
             <div class="name-row"><input id="name-input" name="to" type="text" placeholder="Nhập tên của bạn…" maxlength="60" autocomplete="given-name"><button class="primary" type="submit">Bắt đầu <span aria-hidden="true">→</span></button></div>
-            <details><summary>Thêm người gửi &amp; chọn lời chúc</summary><div class="extra-fields">
+            <details><summary>Thêm tên người gửi</summary><div class="extra-fields">
               <div><label for="from-input">Người gửi</label><input id="from-input" name="from" type="text" placeholder="Tên người gửi (nếu có)" maxlength="60" autocomplete="off"></div>
-              <div><label for="greeting-type">Lời chúc dành cho</label><select id="greeting-type" name="type"><option value="mom">Mẹ &amp; người thân</option><option value="friend" selected>Bạn bè</option><option value="love">Người đặc biệt</option></select></div>
             </div></details>
           </form>
         </div>
@@ -429,14 +462,15 @@
 
       <section id="discovery" class="discovery" aria-labelledby="discovery-title" hidden>
         <p class="chapter-label">Chặng 03 · Khu vườn những điều nhỏ</p>
-        <h1 id="discovery-title" class="discovery-title" tabindex="-1">Nhặt một chút dịu dàng,<br>mang theo trong ngày.</h1>
-        <p id="discovery-lead" class="discovery-lead">Có ba điều tốt lành đang chờ bạn. Chạm từng bông hoa để hé mở nhé.</p>
+        <h1 id="discovery-title" class="discovery-title" tabindex="-1">Mấy lời mình muốn gửi,<br>dành riêng cho bạn.</h1>
+        <p id="discovery-lead" class="discovery-lead">Mình có 4 lời nhắn nhỏ gửi đến bạn. Chạm từng bông hoa để mở nhé.</p>
         <div class="keepsakes">
-          <button class="keepsake" type="button" data-keepsake="0" aria-expanded="false" aria-controls="keepsake-note-0"><svg class="keepsake-flower" viewBox="0 0 70 90" aria-hidden="true"><use href="#mini-bloom"/></svg><span><span class="keepsake-title">Một chút bình yên</span><span class="keepsake-hint">Một khoảng thở dành riêng cho bạn</span><span id="keepsake-note-0" class="keepsake-note" hidden></span></span><span class="keepsake-sign" aria-hidden="true">+</span></button>
-          <button class="keepsake" type="button" data-keepsake="1" aria-expanded="false" aria-controls="keepsake-note-1"><svg class="keepsake-flower" viewBox="0 0 70 90" aria-hidden="true"><use href="#mini-bloom"/></svg><span><span class="keepsake-title">Một chút tự tin</span><span class="keepsake-hint">Một lời nhắc cho những dự định</span><span id="keepsake-note-1" class="keepsake-note" hidden></span></span><span class="keepsake-sign" aria-hidden="true">+</span></button>
-          <button class="keepsake" type="button" data-keepsake="2" aria-expanded="false" aria-controls="keepsake-note-2"><svg class="keepsake-flower" viewBox="0 0 70 90" aria-hidden="true"><use href="#mini-bloom"/></svg><span><span class="keepsake-title">Một chút niềm vui</span><span class="keepsake-hint">Một điều nhỏ để mỉm cười</span><span id="keepsake-note-2" class="keepsake-note" hidden></span></span><span class="keepsake-sign" aria-hidden="true">+</span></button>
+          <button class="keepsake" type="button" data-keepsake="0" aria-expanded="false" aria-controls="keepsake-note-0"><svg class="keepsake-flower" viewBox="0 0 70 90" aria-hidden="true"><use href="#mini-bloom"/></svg><span><span class="keepsake-title">Chúc bạn bình yên</span><span class="keepsake-hint">Một lời chúc cho những ngày ít lo toan</span><span id="keepsake-note-0" class="keepsake-note" hidden></span></span><span class="keepsake-sign" aria-hidden="true">+</span></button>
+          <button class="keepsake" type="button" data-keepsake="1" aria-expanded="false" aria-controls="keepsake-note-1"><svg class="keepsake-flower" viewBox="0 0 70 90" aria-hidden="true"><use href="#mini-bloom"/></svg><span><span class="keepsake-title">Chúc bạn vững tin</span><span class="keepsake-hint">Mình mong những dự định của bạn thành công</span><span id="keepsake-note-1" class="keepsake-note" hidden></span></span><span class="keepsake-sign" aria-hidden="true">+</span></button>
+          <button class="keepsake" type="button" data-keepsake="2" aria-expanded="false" aria-controls="keepsake-note-2"><svg class="keepsake-flower" viewBox="0 0 70 90" aria-hidden="true"><use href="#mini-bloom"/></svg><span><span class="keepsake-title">Chúc bạn nhiều niềm vui</span><span class="keepsake-hint">Gửi bạn một lý do để mỉm cười</span><span id="keepsake-note-2" class="keepsake-note" hidden></span></span><span class="keepsake-sign" aria-hidden="true">+</span></button>
+          <button class="keepsake" type="button" data-keepsake="3" aria-expanded="false" aria-controls="keepsake-note-3"><svg class="keepsake-flower" viewBox="0 0 70 90" aria-hidden="true"><use href="#mini-bloom"/></svg><span><span class="keepsake-title">Gửi bạn lời cảm ơn</span><span class="keepsake-hint">Có những điều mình vẫn luôn ghi nhớ</span><span id="keepsake-note-3" class="keepsake-note" hidden></span></span><span class="keepsake-sign" aria-hidden="true">+</span></button>
         </div>
-        <p id="explore-count" class="explore-count" role="status">0/3 điều tốt lành đã được mở.</p>
+        <p id="explore-count" class="explore-count" role="status">0/4 lời nhắn nhỏ đã được mở.</p>
         <button id="receive-wish" class="primary" type="button">Mở lá thư dành cho bạn <span aria-hidden="true">→</span></button>
         <button id="edit-name" class="replay" type="button">← Sửa tên của bạn</button>
       </section>
@@ -453,8 +487,24 @@
           <button id="share-button" class="primary" type="button"><svg class="icon" aria-hidden="true"><use href="#i-share"/></svg>Chia sẻ lời chúc</button>
           <button id="create-button" class="secondary" type="button"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg>Gửi lời chúc lại</button>
         </div>
+        <button id="open-finale" class="finale-open" type="button"><svg class="icon" aria-hidden="true"><use href="#i-flower"/></svg>Nhận cả một rừng hoa <span aria-hidden="true">→</span></button>
         <button id="replay-button" class="replay" type="button"><svg class="icon" aria-hidden="true"><use href="#i-replay"/></svg>Khám phá lại từ đầu</button>
       </article>
+    </section>
+    <section id="finale" class="finale" aria-labelledby="finale-title" hidden>
+      <canvas id="finale-canvas" class="finale-canvas" aria-hidden="true"></canvas>
+      <div id="finale-fallback" class="finale-fallback" aria-hidden="true" hidden></div>
+      <div class="finale-content">
+        <p class="finale-eyebrow">Một món quà cuối, gửi đến bạn</p>
+        <h1 id="finale-title" class="finale-title" tabindex="-1">Một rừng hoa,<br><em>dành riêng cho <span id="finale-recipient" class="finale-recipient">bạn</span>.</em></h1>
+        <p class="finale-note">Một bó hoa thì hơi ít.<br>Nên mình gửi bạn cả khu vườn này nhé.</p>
+        <p id="finale-signature" class="finale-signature">Với thật nhiều yêu thương ♡</p>
+        <div class="finale-actions">
+          <button id="finale-share" class="primary" type="button"><svg class="icon" aria-hidden="true"><use href="#i-share"/></svg>Chia sẻ lời chúc</button>
+          <button id="finale-back" class="secondary" type="button">Đọc lại lá thư</button>
+        </div>
+        <button id="finale-replay" class="replay" type="button"><svg class="icon" aria-hidden="true"><use href="#i-replay"/></svg>Khám phá lại từ đầu</button>
+      </div>
     </section>
     <noscript><p class="no-js">Chúc mừng ngày Phụ nữ Việt Nam 20/10! Chúc bạn luôn bình an, vui khỏe và được yêu thương. Bật JavaScript để mở đóa hoa và nhận lời chúc riêng nhé.</p></noscript>
   </main>
@@ -479,9 +529,8 @@
     <div class="dialog-top"><h2 id="create-title">Gửi tiếp một lời thương</h2><button class="close-dialog" type="button" aria-label="Đóng"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
     <p class="dialog-description">Một đóa hoa nữa, dành cho người bạn yêu quý.</p>
     <form id="create-form">
-      <label for="recipient-input">Gửi đến</label><input id="recipient-input" name="to" placeholder="Mẹ, chị, bạn thân…" maxlength="60" autocomplete="off">
+      <label for="recipient-input">Gửi đến</label><input id="recipient-input" name="to" placeholder="Nhập tên người nhận…" maxlength="60" autocomplete="off">
       <label for="sender-input">Tên của bạn</label><input id="sender-input" name="from" placeholder="Để người nhận biết ai đang thương mình" maxlength="60" autocomplete="given-name">
-      <label for="type-input">Chọn lời chúc</label><select id="type-input" name="type"><option value="mom">Cho mẹ &amp; người thân</option><option value="friend" selected>Cho bạn bè</option><option value="love">Cho người đặc biệt</option></select>
       <button class="primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-share"/></svg>Tạo &amp; chia sẻ lời chúc</button>
     </form>
   </dialog>
@@ -502,82 +551,51 @@
 
       const MUSIC_URL = "";
 
-      const WISHES = {
-        mom: [
-          [
-            "Chúc {name} một ngày 20/10 thật vui và ấm áp.",
-            "Cảm ơn vì những quan tâm, cả những điều nhỏ bé thường ngày.",
-            "Mong {name} luôn khỏe mạnh, bình an và có thêm thời gian cho mình.",
-            "Những vất vả rồi sẽ nhẹ hơn, những niềm vui sẽ đến nhiều hơn.",
-            "Hôm nay và mọi ngày, {name} luôn được yêu thương."
-          ],
-          [
-            "Gửi {name} một đóa hoa thắm và lời chúc chân thành nhất.",
-            "Cảm ơn sự hy sinh thầm lặng và tình yêu vô bờ bến của {name}.",
-            "Mong sao mỗi ngày của {name} trôi qua thật thong thả, nhẹ lòng.",
-            "Hãy nhớ chăm sóc bản thân nhiều như cách vẫn luôn chăm sóc gia đình.",
-            "Mỗi ngày trôi qua đều mong {name} được bình an và tràn ngập niềm vui."
-          ],
-          [
-            "Ngày 20/10, chúc {name} nhận được thật nhiều tình yêu và sự trân trọng.",
-            "Những điều dịu dàng {name} vun vén cho gia đình luôn được ghi nhớ.",
-            "Mong {name} có một bữa cơm ngon, một giấc ngủ sâu và thật nhiều tiếng cười.",
-            "Những âu lo xin gửi lại đằng sau, hôm nay chỉ dành trọn cho riêng {name}.",
-            "Thương chúc {name} trọn vẹn một mùa 20/10 thật đầm ấm."
-          ]
+      const WISHES = [
+        [
+          "{name}, 20/10 rồi đó.",
+          "Mình mong hôm nay bạn có một ly trà ngon, một bài hát hợp tâm trạng,",
+          "và ít nhất một người nhắn hỏi bạn đang làm gì."
         ],
-        friend: [
-          [
-            "Chúc {name} một ngày 20/10 đầy những niềm vui nho nhỏ.",
-            "Mong bạn luôn có sức khỏe và tự tin với con đường mình chọn.",
-            "Có người lắng nghe, có nơi để về, có điều để mong đợi.",
-            "Nhớ dành cho mình một chút nghỉ ngơi và thật nhiều dịu dàng.",
-            "Thật vui vì cuộc đời này có một người bạn như bạn."
-          ],
-          [
-            "Chúc {name} hôm nay tỏa sáng rạng rỡ theo cách riêng của bạn.",
-            "Mong những dự định đang ấp ủ sẽ dần thành hình, theo đúng nhịp bạn mong.",
-            "Những lúc cần nghỉ ngơi, cứ thả lỏng và cho mình một khoảng thở nhé.",
-            "Hy vọng bạn luôn gặp những người tử tế và có vô vàn trải nghiệm đẹp.",
-            "Cảm ơn vì đã là một người bạn đáng quý. Chúc mừng 20/10!"
-          ],
-          [
-            "Một ngày 20/10 thật dễ chịu và bình yên nhé, {name}.",
-            "Chúc bạn đủ năng lượng cho điều mình yêu, đủ thảnh thơi sau một ngày dài.",
-            "Mong bạn luôn được trân trọng, và cũng thật hào phóng với chính mình.",
-            "Hãy luôn tự tin, vì bạn là một phiên bản độc nhất và tuyệt vời.",
-            "Gửi một chút may mắn và hoa thắm đến mọi hành trình sắp tới của bạn."
-          ]
+        [
+          "20/10 đến rồi, {name} ơi.",
+          "Chúc bạn hôm nay đi đâu cũng gặp người dễ mến, đồ ăn thì đúng vị.",
+          "Có ảnh đẹp thì nhớ gửi mình xem với."
         ],
-        love: [
-          [
-            "Chúc người đặc biệt của mình một ngày 20/10 thật ngọt ngào.",
-            "Cảm ơn vì đã khiến những ngày bình thường trở nên đáng nhớ.",
-            "Mong bạn luôn được làm điều mình thích, sống theo cách mình muốn.",
-            "Những ngày mệt mỏi, hy vọng mình có thể ở bên và lắng nghe.",
-            "Chúc chúng mình còn nhiều ngày bình yên cùng nhau."
-          ],
-          [
-            "Gửi {name} — đóa hoa xinh đẹp và dịu dàng nhất trong lòng mình.",
-            "Cảm ơn vì sự thấu hiểu, kiên nhẫn và những tình cảm chân thành.",
-            "Chúc bạn một ngày 20/10 tràn ngập nụ cười và được yêu thương trọn vẹn.",
-            "Mong rằng mọi ước mơ của bạn đều có người ủng hộ, trong đó luôn có mình.",
-            "Chúc {name} hôm nay thật ấm áp, và những ngày sau cũng vậy."
-          ],
-          [
-            "Ngày 20/10, gửi {name} một đóa hoa và trọn vẹn sự thương mến.",
-            "Cảm ơn em vì đã đến và mang theo luồng ánh sáng dịu dàng.",
-            "Mong em luôn vô tư mỉm cười, rạng rỡ và hạnh phúc mỗi ngày.",
-            "Khi cần một tựa vai hay một người lắng nghe, nhớ rằng anh luôn ở đây.",
-            "Thương chúc {name} một ngày lễ thật đặc biệt và an yên."
-          ]
+        [
+          "Chúc mừng 20/10!",
+          "{name} cười nhiều lên nhé.",
+          "Thấy bạn cười là cả ngày bỗng dễ chịu hơn hẳn."
         ]
-      };
-
+      ];
+ 
       const KEEPSAKES = [
-        { name: "Bình yên", notes: ["Chúc tối nay bạn đặt lưng là ngủ ngon, sáng mai thức dậy thấy người khỏe khoắn.", "Mong chuyện đang lo sớm giải quyết xong, để ăn một bữa cơm cũng thấy ngon hơn.", "Chúc bạn có một buổi tối thảnh thơi: cơm ngon, phim hay, không ai gọi giục việc."] },
-        { name: "Tự tin", notes: ["Chúc điều bạn đang định thử sẽ thành công, để có dịp khoe: biết thế mình làm sớm hơn!", "Mong lần tới có cơ hội hay, bạn sẽ mạnh dạn nhận lời và làm được thật tốt.", "Chúc những hôm bạn bỏ công, bỏ sức đều nhận lại kết quả khiến mình thấy đáng."] },
-        { name: "Niềm vui", notes: ["Chúc bạn hôm nay được mời món mình thích. Nếu chưa ai mời thì tự thưởng cũng được nhé!", "Mong điện thoại hôm nay báo tin vui nhiều hơn báo việc. 20/10 mà, được vui chứ!", "Chúc bạn mua gì cũng vừa ý, đi đâu cũng gặp người dễ mến, chụp tấm nào cũng thấy xinh."] }
+        {
+          name: "Bình yên",
+          notes: [
+            "Chuyện đang làm bạn lo, mong nó sớm qua để bạn có thể thở phào."
+          ]
+        },
+        {
+          name: "Vững tin",
+          notes: [
+            "Mong dự định của bạn suôn sẻ, cố gắng bao nhiêu thì được đền bấy nhiêu.",
+            "Mong bạn gặp đúng cơ hội, và có người nhìn thấy những gì bạn đã làm.",
+            "Gửi bạn chút may mắn cho việc sắp tới. Có tin vui nhớ kể mình nghe nhé."
+          ]
+        },
+        {
+          name: "Niềm vui",
+          notes: [
+            "Chúc bạn đi đâu cũng gặp người dễ mến, làm gì cũng thuận, và chụp được thật nhiều ảnh đẹp."
+          ]
+        },
+        {
+          name: "Biết ơn",
+          notes: [
+            "Có bạn ở đây, mọi thứ quanh mình dễ chịu hơn nhiều."
+          ]
+        }
       ];
 
       const params = new URLSearchParams(window.location.search);
@@ -586,18 +604,218 @@
       }
       let recipient = cleanName(params.get("to"));
       let sender = cleanName(params.get("from"));
-      let type = Object.hasOwn(WISHES, params.get("type")) ? params.get("type") : "friend";
       let salutation;
       let wishIndex = -1;
-      const lastWish = { mom: -1, friend: -1, love: -1 };
       const collected = new Set();
-      const lastNotes = [-1, -1, -1];
+      const lastNotes = KEEPSAKES.map(() => -1);
       let phase = "closed";
       let unlockedStep = 1;
       let bloomTimer;
       let burstTimer;
       let toastTimer;
       let copyTarget = "";
+      let meadow;
+      let finaleFrame = 0;
+      let finaleStartedAt = 0;
+      let finaleElapsed = 0;
+      const finaleDuration = 6200;
+
+      function flowerSprite(colors, variant, inner) {
+        const sprite = document.createElement("canvas");
+        sprite.width = sprite.height = 192;
+        const ctx = sprite.getContext("2d");
+        if (!ctx) return sprite;
+        ctx.translate(96, 96);
+        const count = variant ? 12 : 8;
+        const radius = inner ? 46 : 77;
+        for (let index = 0; index < count; index++) {
+          ctx.save();
+          ctx.rotate(index * Math.PI * 2 / count + (inner ? .21 : 0));
+          const paint = ctx.createLinearGradient(0, -radius, 0, 5);
+          paint.addColorStop(0, colors[0]);
+          paint.addColorStop(.55, colors[1]);
+          paint.addColorStop(1, colors[2]);
+          ctx.fillStyle = paint;
+          ctx.strokeStyle = colors[2] + "66";
+          ctx.lineWidth = .7;
+          ctx.beginPath();
+          ctx.moveTo(0, 7);
+          ctx.bezierCurveTo(-radius * .48, -radius * .18, -radius * .37, -radius * .88, 0, -radius);
+          ctx.bezierCurveTo(radius * .37, -radius * .88, radius * .48, -radius * .18, 0, 7);
+          ctx.fill(); ctx.stroke();
+          ctx.restore();
+        }
+        if (inner) {
+          ctx.fillStyle = "#e3b95f";
+          ctx.beginPath(); ctx.arc(0, 0, variant ? 14 : 11, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = "#fff2b5";
+          for (let index = 0; index < 9; index++) {
+            const angle = index * 2.4;
+            const distance = 3 + index * .85;
+            ctx.beginPath(); ctx.arc(Math.cos(angle) * distance, Math.sin(angle) * distance, 1.7, 0, Math.PI * 2); ctx.fill();
+          }
+        }
+        return sprite;
+      }
+      function createMeadow() {
+        const canvas = $("finale-canvas");
+        const ctx = canvas.getContext("2d");
+        if (!ctx) {
+          const fallback = $("finale-fallback");
+          if (!fallback.childElementCount) {
+            for (let index = 0; index < 32; index++) {
+              const flower = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+              flower.setAttribute("viewBox", "0 0 70 90");
+              const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+              use.setAttribute("href", "#mini-bloom"); flower.appendChild(use); fallback.appendChild(flower);
+            }
+          }
+          fallback.hidden = false;
+          return null;
+        }
+        const palettes = [
+          ["#fff0ec", "#e9a4bd", "#b8668e"],
+          ["#f7eeff", "#c3abdf", "#9275b2"],
+          ["#fff9df", "#f0d995", "#c5a762"],
+          ["#ffe4e7", "#dc8eab", "#a94d77"]
+        ];
+        const sprites = palettes.flatMap((colors) => [0, 1].map((variant) => ({ outer: flowerSprite(colors, variant, false), inner: flowerSprite(colors, variant, true) })));
+        let width = 0, height = 0, flowers = [];
+        const clamp = (value) => Math.max(0, Math.min(1, value));
+        const ease = (value) => 1 - Math.pow(1 - clamp(value), 3);
+        function resize() {
+          width = innerWidth; height = innerHeight;
+          const ratio = Math.min(devicePixelRatio || 1, 1.5);
+          canvas.width = Math.round(width * ratio); canvas.height = Math.round(height * ratio);
+          ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+          flowers = [];
+          const narrow = width < 700;
+          const counts = narrow ? [28, 24, 20, 16] : [48, 40, 32, 24];
+          const scale = Math.min(1.25, Math.max(.8, width / 1000));
+          let seed = 2010;
+          const random = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+          counts.forEach((count, row) => {
+            for (let index = 0; index < count; index++) {
+              const x = ((index + random() * .8 - .4) / (count - 1)) * width;
+              const tallSide = row === 1 && (index < 2 || index > count - 3);
+              flowers.push({
+                x,
+                base: height * (.75 + row * .15) + random() * height * .055,
+                height: height * (tallSide ? .30 : .10 + row * .095) * (.75 + random() * .45),
+                size: (17 + row * 13) * scale * (.8 + random() * .42),
+                bend: (random() - .5) * (24 + row * 17),
+                angle: (random() - .5) * .6,
+                delay: row * 640 + random() * 1350,
+                sprite: sprites[Math.floor(random() * sprites.length)],
+                stemColor: row % 2 ? "#7e9d83" : "#98ad88",
+                leafColor: row % 2 ? "#9eb78b" : "#bdc8a0"
+              });
+            }
+          });
+        }
+        function draw(time) {
+          ctx.clearRect(0, 0, width, height);
+          flowers.forEach((flower) => {
+            const stem = ease((time - flower.delay) / 1250);
+            if (stem <= 0) return;
+            const x = flower.x + flower.bend * stem;
+            const y = flower.base - flower.height * stem;
+            ctx.globalAlpha = .88;
+            ctx.strokeStyle = flower.stemColor;
+            ctx.lineWidth = Math.max(.9, flower.size / 24);
+            ctx.beginPath(); ctx.moveTo(flower.x, flower.base);
+            ctx.bezierCurveTo(flower.x - flower.bend * .3, flower.base - flower.height * stem * .4, x, y + flower.height * stem * .3, x, y);
+            ctx.stroke();
+            if (stem > .4) {
+              for (let side = -1; side <= 1; side += 2) {
+                ctx.save();
+                ctx.translate(flower.x + flower.bend * .3, flower.base - flower.height * stem * (side < 0 ? .34 : .55));
+                ctx.scale((stem - .4) / .6, (stem - .4) / .6);
+                ctx.fillStyle = flower.leafColor;
+                const leaf = flower.size * .85;
+                ctx.beginPath(); ctx.moveTo(0, 0);
+                ctx.quadraticCurveTo(side * leaf * .15, -leaf * .75, side * leaf, -leaf * .8);
+                ctx.quadraticCurveTo(side * leaf * .9, leaf * .1, 0, 0); ctx.fill(); ctx.restore();
+              }
+            }
+            const outer = ease((time - flower.delay - 550) / 1600);
+            const inner = ease((time - flower.delay - 1000) / 1500);
+            if (outer <= 0) return;
+            ctx.save(); ctx.translate(x, y); ctx.rotate(flower.angle);
+            const radius = flower.size * outer;
+            ctx.globalAlpha = outer;
+            ctx.drawImage(flower.sprite.outer, -radius, -radius, radius * 2, radius * 2);
+            if (inner > 0) {
+              const innerRadius = flower.size * inner;
+              ctx.globalAlpha = inner;
+              ctx.drawImage(flower.sprite.inner, -innerRadius, -innerRadius, innerRadius * 2, innerRadius * 2);
+            }
+            ctx.restore();
+          });
+          ctx.globalAlpha = 1;
+          const glow = clamp(time / 3000);
+          for (let index = 0; index < 20; index++) {
+            const x = (index * .618 % 1) * width;
+            const y = height * (.50 + (index * .387 % 1) * .45) - Math.sin(time / 1500 + index) * 8;
+            ctx.fillStyle = `rgba(255, 249, 211, ${glow * (.35 + Math.sin(index + time / 1100) * .2)})`;
+            ctx.beginPath(); ctx.arc(x, y, index % 3 === 0 ? 2 : 1.3, 0, Math.PI * 2); ctx.fill();
+          }
+        }
+        resize();
+        return { resize, draw };
+      }
+      function cancelFinaleFrame() {
+        cancelAnimationFrame(finaleFrame);
+        finaleFrame = 0;
+      }
+      function closeFinale() {
+        cancelFinaleFrame();
+        $("finale").hidden = true;
+        document.querySelector(".experience").hidden = false;
+      }
+      function animateFinale(now) {
+        if (phase !== "finale" || document.hidden || !meadow) { finaleFrame = 0; return; }
+        finaleElapsed = motion.matches ? finaleDuration : Math.max(finaleElapsed, Math.min(finaleDuration, now - finaleStartedAt));
+        meadow.draw(finaleElapsed);
+        if (finaleElapsed < finaleDuration && !motion.matches) finaleFrame = requestAnimationFrame(animateFinale);
+        else finaleFrame = 0;
+      }
+      function openFinale() {
+        if (phase !== "wish") return;
+        clearTimeout(bloomTimer); clearTimeout(burstTimer);
+        phase = "finale";
+        document.body.dataset.phase = phase;
+        document.querySelector(".experience").hidden = true;
+        $("finale").hidden = false;
+        $("finale").scrollTop = 0;
+        $("finale-recipient").textContent = recipient || "bạn";
+        $("finale-signature").textContent = $("signature").textContent;
+        if (!meadow) meadow = createMeadow();
+        else meadow.resize();
+        finaleElapsed = motion.matches ? finaleDuration : 0;
+        finaleStartedAt = performance.now() - finaleElapsed;
+        if (meadow) {
+          meadow.draw(finaleElapsed);
+          if (!motion.matches) finaleFrame = requestAnimationFrame(animateFinale);
+        }
+        $("announcement").textContent = "Mình gửi bạn cả một rừng hoa. Những bông hoa hồng, tím và vàng đang nở khắp khu vườn.";
+        $("finale-title").focus({ preventScroll: true });
+      }
+      $("open-finale").addEventListener("click", openFinale);
+      $("finale-back").addEventListener("click", revealLetter);
+      $("finale-share").addEventListener("click", () => $("share-button").click());
+      $("finale-replay").addEventListener("click", () => $("replay-button").click());
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && phase === "finale" && !document.querySelector("dialog[open]")) { event.preventDefault(); revealLetter(); }
+      });
+      window.addEventListener("resize", () => {
+        if (phase !== "finale" || !meadow) return;
+        cancelFinaleFrame();
+        if (motion.matches) finaleElapsed = finaleDuration;
+        else if (!document.hidden) finaleElapsed = Math.max(finaleElapsed, Math.min(finaleDuration, performance.now() - finaleStartedAt));
+        meadow.resize(); meadow.draw(finaleElapsed);
+        if (!document.hidden && !motion.matches && finaleElapsed < finaleDuration) finaleFrame = requestAnimationFrame(animateFinale);
+      });
 
       function randomIndex(length, previous) {
         if (length < 2) return 0;
@@ -607,15 +825,14 @@
       }
       function renderWish(randomize = false) {
         if (randomize || wishIndex < 0) {
-          wishIndex = randomIndex(WISHES[type].length, lastWish[type]);
-          lastWish[type] = wishIndex;
+          wishIndex = randomIndex(WISHES.length, wishIndex);
         }
         const fragment = document.createDocumentFragment();
-        WISHES[type][wishIndex].forEach((text, index) => {
+        WISHES[wishIndex].forEach((text, index) => {
           const line = document.createElement("p");
           line.className = "wish-line";
           line.style.setProperty("--line-delay", `${.1 + index * .22}s`);
-          line.textContent = text.replaceAll("{name}", recipient || (type === "mom" ? "người thân yêu" : "bạn"));
+          line.textContent = text.replaceAll("{name}", recipient || "bạn");
           fragment.appendChild(line);
         });
         $("wish-lines").replaceChildren(fragment);
@@ -625,7 +842,7 @@
         $("intro-recipient").textContent = salutation;
         $("letter-to").textContent = `${salutation},`;
         $("signature").textContent = sender ? `Từ ${sender} ♡` : "Với thật nhiều yêu thương ♡";
-        $("discovery-lead").textContent = recipient ? `${recipient} ơi, có ba điều tốt lành đang chờ. Chạm từng bông hoa để hé mở nhé.` : "Có ba điều tốt lành đang chờ bạn. Chạm từng bông hoa để hé mở nhé.";
+        $("discovery-lead").textContent = `${recipient ? `${recipient} ơi, mình` : "Mình"} có ${KEEPSAKES.length} lời nhắn nhỏ gửi đến bạn. Chạm từng bông hoa để mở nhé.`;
         document.title = recipient ? `${salutation} · Chúc mừng 20/10` : "Một đóa hoa, một lời thương · 20/10";
       }
       function makeShareURL() {
@@ -633,7 +850,6 @@
         url.search = ""; url.hash = "";
         if (recipient) url.searchParams.set("to", recipient);
         if (sender) url.searchParams.set("from", sender);
-        url.searchParams.set("type", type);
         return url.href;
       }
       function syncURL() {
@@ -642,22 +858,17 @@
       }
       $("name-input").value = recipient;
       $("from-input").value = sender;
-      $("greeting-type").value = type;
       updateNames();
       renderWish();
       function applyPersonalization() {
         recipient = cleanName($("name-input").value);
         sender = cleanName($("from-input").value);
-        const nextType = $("greeting-type").value;
-        const typeChanged = type !== nextType;
-        type = Object.hasOwn(WISHES, nextType) ? nextType : "friend";
         updateNames();
-        renderWish(typeChanged);
+        renderWish();
         syncURL();
       }
       $("name-input").addEventListener("input", applyPersonalization);
       $("from-input").addEventListener("input", applyPersonalization);
-      $("greeting-type").addEventListener("change", applyPersonalization);
       $("personalize-form").addEventListener("submit", (event) => { event.preventDefault(); openFlower(); });
       function toast(message) {
         clearTimeout(toastTimer);
@@ -676,6 +887,7 @@
         }
       }
       function showDiscovery() {
+        closeFinale();
         clearTimeout(bloomTimer);
         clearTimeout(burstTimer);
         phase = "discover";
@@ -691,6 +903,7 @@
         $("discovery-title").focus({ preventScroll: true });
       }
       function revealLetter() {
+        closeFinale();
         phase = "wish";
         document.body.dataset.phase = phase;
         document.body.classList.remove("blooming");
@@ -710,7 +923,7 @@
         document.body.dataset.phase = phase;
         document.body.classList.add("blooming");
         $("open-flower").disabled = true;
-        $("announcement").textContent = "Đóa hoa đang nở. Khu vườn những điều nhỏ đang chờ bạn khám phá.";
+        $("announcement").textContent = "Đóa hoa đang nở. Những lời chúc mình gửi đến bạn sắp hiện ra.";
         setStep(2);
         if (motion.matches) showDiscovery();
         else {
@@ -720,6 +933,7 @@
       }
       $("open-flower").addEventListener("click", openFlower);
       function returnToIntro(focusName = false) {
+        closeFinale();
         clearTimeout(bloomTimer);
         clearTimeout(burstTimer);
         phase = "closed";
@@ -737,9 +951,9 @@
         window.scrollTo({ top: 0, behavior: "instant" });
       }
       function updateCollected() {
-        $("explore-count").textContent = collected.size === 3 ? "Đã mở đủ 3 điều tốt lành. Lá thư của bạn đang chờ! ♡" : `${collected.size}/3 điều tốt lành đã được mở.`;
+        $("explore-count").textContent = collected.size === KEEPSAKES.length ? `Bạn đã nhận đủ ${KEEPSAKES.length} lời nhắn nhỏ. Mình còn một lá thư gửi bạn! ♡` : `${collected.size}/${KEEPSAKES.length} lời nhắn nhỏ đã được mở.`;
         $("keepsake-summary").hidden = collected.size === 0;
-        $("keepsake-summary").textContent = `Mang theo một chút: ${[...collected].map((index) => KEEPSAKES[index].name.toLowerCase()).join(" · ")}.`;
+        $("keepsake-summary").textContent = `Mình gửi bạn: ${[...collected].map((index) => KEEPSAKES[index].name.toLowerCase()).join(" · ")}.`;
       }
       document.querySelectorAll("[data-keepsake]").forEach((button) => {
         button.dataset.originalHint = button.querySelector(".keepsake-hint").textContent;
@@ -759,7 +973,7 @@
           note.hidden = false;
           button.setAttribute("aria-expanded", "true");
           button.querySelector(".keepsake-sign").textContent = "−";
-          button.querySelector(".keepsake-hint").textContent = "Một điều tốt lành dành cho bạn";
+          button.querySelector(".keepsake-hint").textContent = "Một lời nhắn mình gửi đến bạn";
           collected.add(index);
           updateCollected();
         });
@@ -841,8 +1055,22 @@
         createAmbient();
         $("burst-layer").replaceChildren();
         if (motion.matches && phase === "opening") showDiscovery();
+        if (motion.matches && phase === "finale" && meadow) {
+          cancelFinaleFrame(); finaleElapsed = finaleDuration; meadow.draw(finaleDuration);
+        }
       });
-      document.addEventListener("visibilitychange", () => document.body.classList.toggle("page-hidden", document.hidden));
+      document.addEventListener("visibilitychange", () => {
+        document.body.classList.toggle("page-hidden", document.hidden);
+        if (phase !== "finale" || !meadow) return;
+        if (document.hidden) {
+          if (finaleFrame) finaleElapsed = Math.max(finaleElapsed, Math.min(finaleDuration, performance.now() - finaleStartedAt));
+          cancelFinaleFrame();
+        } else if (!motion.matches && finaleElapsed < finaleDuration) {
+          cancelFinaleFrame();
+          finaleStartedAt = performance.now() - finaleElapsed;
+          finaleFrame = requestAnimationFrame(animateFinale);
+        }
+      });
 
       let musicPromise;
       let musicObjectURL;
@@ -964,7 +1192,6 @@
       $("create-button").addEventListener("click", () => {
         $("recipient-input").value = sender;
         $("sender-input").value = recipient;
-        $("type-input").value = type;
         $("create-dialog").showModal();
       });
       $("create-form").addEventListener("submit", (event) => {
@@ -975,7 +1202,6 @@
         const from = cleanName($("sender-input").value);
         if (to) url.searchParams.set("to", to);
         if (from) url.searchParams.set("from", from);
-        url.searchParams.set("type", $("type-input").value);
         $("create-dialog").close();
         if (location.protocol === "file:") showCopyDialog(url.href);
         else shareGreeting(url.href, `${to ? `Gửi ${to}` : "Gửi bạn"} một đóa hoa và lời chúc 20/10${from ? `, từ ${from}` : ""}. 🌸`);
