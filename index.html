@@ -9,7 +9,7 @@
   <title>Một đóa hoa, một lời thương · 20/10</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23f8eaf1'/%3E%3Cpath d='M32 48C10 48 7 30 11 24c9 0 17 6 21 18C20 30 23 15 32 8c9 7 12 22 0 34 4-12 12-18 21-18 4 6 1 24-21 24Z' fill='%23c16a8b'/%3E%3C/svg%3E">
   <style>
-    /* ĐỔI MÀU Ở ĐÂY. Font hệ thống giúp file chạy hoàn toàn offline. */
+    
     :root {
       --rose: #9b4265;
       --rose-dark: #77334f;
@@ -183,7 +183,7 @@
     .replay { display: flex; align-items: center; gap: 6px; padding: 12px; margin: 10px auto 0; border: 0; background: none; font-size: 11px; color: var(--muted); }
     .replay .icon { width: 13px; height: 13px; }
     body:is([data-phase="discover"], [data-phase="wish"]) .experience { padding-top: 2px; }
-    /* Giữ nguyên kích thước SVG khi chuyển màn; thu cả cụm bằng transform. */
+    
     body:is([data-phase="discover"], [data-phase="wish"]) .garden { height: calc(min(88vw, 400px) * .66); transform: scale(.71); transform-origin: 50% 0; margin-top: -5px; margin-bottom: -24px; }
     body:is([data-phase="discover"], [data-phase="wish"]) .orbit { opacity: .6; }
     body[data-phase="wish"] .letter { animation: appear .8s both; }
@@ -319,7 +319,7 @@
       .primary, .secondary { padding-inline: 12px; }
       .extra-fields { grid-template-columns: 1fr; gap: 4px; }
     }
-    /* Chỉ transform/opacity được animate; giảm chuyển động cũng bỏ thời gian chờ. */
+    
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
       .ambient, .burst-layer, .halo { display: none; }
@@ -399,7 +399,7 @@
             <path class="leaf" d="M263 383c11-28 41-31 48-46 4 27-18 46-48 46Z"/>
             <path d="M263 383q18-24 40-37" fill="none" stroke="#81917d" stroke-width=".9"/>
             <g class="flower-float">
-              <!-- Ba lớp cánh: mỗi nhóm xoay quanh chân cánh hoa. -->
+              
               <g class="petal" style="--closed:-13deg;--open:-85deg;--delay:0s;--sx:.95;--sy:1.04" fill="url(#petal-back)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q-20-85 0-190"/></g>
               <g class="petal" style="--closed:13deg;--open:85deg;--delay:.08s;--sx:.95;--sy:1.04" fill="url(#petal-back)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q20-85 0-190"/></g>
               <g class="petal" style="--closed:-10deg;--open:-60deg;--delay:.15s;--sx:1.04" fill="url(#petal-back)"><path d="M260 334C190 283 201 209 260 128c59 81 70 155 0 206Z"/><path class="vein" d="M260 329q-20-85 0-190"/></g>
@@ -470,7 +470,7 @@
     <p class="footer-note">Dành cho những người phụ nữ làm thế giới dịu dàng hơn. <span>♡</span></p>
   </footer>
 
-  <!-- Thẻ audio mặc định tắt. Thay link tại MUSIC_URL trong script bên dưới. -->
+  
   <audio id="background-music" loop preload="none" aria-label="Nhạc piano nền nhẹ nhàng"></audio>
   <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
   <div id="toast" class="toast" role="status" hidden></div>
@@ -500,93 +500,96 @@
       const $ = (id) => document.getElementById(id);
       const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-      // ĐỔI LINK NHẠC Ở ĐÂY: dùng URL HTTPS trỏ thẳng đến file MP3/OGG/WAV.
-      // Ví dụ: const MUSIC_URL = "https://ten-mien-cua-ban.vn/piano.mp3";
-      // Để trống: trang tự tạo một đoạn piano nhỏ, không cần mạng hay thư viện.
       const MUSIC_URL = "";
 
-      // SỬA LỜI CHÚC Ở ĐÂY. Mỗi nhóm có nhiều mẫu, mỗi mẫu là 5 dòng.
-      // Có thể thêm mẫu vào từng nhóm; {name} lấy từ ô nhập hoặc URL.
       const WISHES = {
         mom: [
           [
-          "Chúc {name} một ngày 20/10 thật vui và ấm áp.",
-          "Cảm ơn vì những quan tâm, cả những điều nhỏ bé thường ngày.",
-          "Mong {name} luôn khỏe mạnh, bình an và có thêm thời gian cho mình.",
-          "Những vất vả rồi sẽ nhẹ hơn, những niềm vui sẽ đến nhiều hơn.",
-          "Hôm nay và mọi ngày, {name} luôn được yêu thương."
+            "{name} ơi, 20/10 vui vẻ nhé!",
+            "Chúc {name} ăn ngon, ngủ ngon, khỏe mạnh và bớt lo nghĩ.",
+            "Hôm nay cứ nghỉ ngơi một bữa, làm điều mình thích nhé.",
+            "Chuyện gì rồi cũng tính được, sức khỏe của {name} vẫn là quan trọng nhất.",
+            "Cả nhà thương {name} nhiều lắm."
           ],
           [
-            "Gửi {name} một đóa hoa và lời chúc thật chân thành.",
-            "Mong hôm nay có một bữa cơm ngon, một giấc ngủ yên và nhiều tiếng cười.",
-            "Cảm ơn vì luôn là một phần ấm áp của gia đình.",
-            "Chúc {name} có thêm những ngày thong thả, được làm điều mình thích.",
-            "Mỗi ngày đều mong {name} vui khỏe và nhẹ lòng."
+            "20/10, gửi {name} một bó hoa qua màn hình trước nhé.",
+            "Chúc {name} lúc nào cũng khỏe, cũng vui, thích ăn gì cũng thấy ngon miệng.",
+            "Mong có nhiều dịp cả nhà ngồi ăn cơm, kể chuyện rồi cười với nhau.",
+            "Vẫn còn nhiều nơi để đi, nhiều món ngon để thử, đừng chỉ lo cho mọi người mãi nhé."
           ],
           [
-            "Ngày 20/10, chúc {name} nhận được nhiều quan tâm và những cái ôm.",
-            "Những điều {name} đã dành cho gia đình luôn được ghi nhớ.",
-            "Mong sức khỏe thật tốt, lòng thật an và ngày nào cũng có niềm vui.",
-            "Nhớ chăm sóc bản thân nhiều như cách vẫn chăm sóc mọi người nhé.",
-            "Gửi {name} thật nhiều thương mến, hôm nay và những ngày sau."
+            "Chúc {name} có một ngày 20/10 thật vui bên gia đình.",
+            "Cảm ơn những lần hỏi đã ăn cơm chưa, có mệt không, bao giờ về.",
+            "Những câu nghe quen đến mức đôi khi quên nói lời cảm ơn.",
+            "Chỉ mong {name} khỏe thật lâu để cả nhà còn được quây quần nhiều nữa."
+          ],
+          [
+            "Nhân ngày 20/10, chúc {name} ngày càng vui khỏe, trẻ trung nhé!",
+            "Mong những chuyện phải bận tâm ít đi, những cuộc hẹn vui thì nhiều lên.",
+            "Đừng tiếc một bộ đồ đẹp, một chuyến đi chơi hay một buổi nghỉ cho riêng mình.",
+            "{name} đã lo cho gia đình nhiều rồi, cũng phải chiều bản thân nữa chứ."
           ]
         ],
         friend: [
           [
-          "Chúc bạn một ngày 20/10 đầy những niềm vui nho nhỏ.",
-          "Mong bạn luôn có sức khỏe và tự tin với con đường mình chọn.",
-          "Có người lắng nghe, có nơi để về, có điều để mong đợi.",
-          "Nhớ dành cho mình một chút nghỉ ngơi và thật nhiều dịu dàng.",
-          "Thật vui vì cuộc đời này có một người bạn như bạn."
+            "20/10 vui vẻ nha, {name}!",
+            "Chúc bạn xinh đẹp, ví rủng rỉnh, làm gì cũng bớt trục trặc hơn một chút.",
+            "Ra đường gặp người dễ thương, mở điện thoại thấy toàn tin vui.",
+            "Hôm nay nhớ ăn một món thật ngon và chụp một tấm ảnh thật xinh nhé!"
           ],
           [
-            "Chúc {name} hôm nay có một lý do thật vui để mỉm cười.",
-            "Mong những dự định đang ấp ủ sẽ dần thành hình, theo nhịp của bạn.",
-            "Những lúc cần nghỉ, cứ cho mình một khoảng thở nhé.",
-            "Hy vọng bạn luôn gặp những người tử tế và có nhiều cuộc hẹn vui.",
-            "Cảm ơn vì đã là một người bạn đáng quý. Chúc mừng 20/10!"
+            "{name} ơi, chúc bạn một ngày 20/10 nhiều hoa, nhiều quà và nhiều tiếng cười.",
+            "Mong chuyện đang chờ sớm có tin tốt, điều đang cố gắng sớm có kết quả.",
+            "Cảm ơn vì những lần nghe mình kể chuyện, dù có lúc kể đi kể lại.",
+            "Hôm nào gặp nhau ăn một bữa ngon nhé!"
           ],
           [
-            "Một ngày 20/10 thật dễ chịu nhé, {name}.",
-            "Chúc bạn đủ năng lượng cho điều mình yêu, đủ bình yên sau một ngày dài.",
-            "Có những cuộc trò chuyện hợp ý và những cuối tuần thật thảnh thơi.",
-            "Mong bạn luôn được trân trọng, và cũng thật hào phóng với chính mình.",
-            "Gửi một chút may mắn đến mọi hành trình sắp tới của bạn."
+            "Gửi {name} một lời chúc 20/10 thật to!",
+            "Chúc bạn kiếm được tiền từ việc mình thích và tiêu tiền vào những thứ khiến mình vui.",
+            "Có sức khỏe để đi chơi, có bạn hợp gu để rủ đi cùng.",
+            "Mong mấy chuyện đau đầu sớm qua, để còn dành thời gian tận hưởng nữa nhé."
+          ],
+          [
+            "Chúc mừng 20/10, {name}!",
+            "Mong bạn luôn được người mình thương quan tâm, được bạn bè nhớ đến vào những dịp vui.",
+            "Có buồn thì cứ nhắn, có chuyện gì hay cũng nhớ kể mình nghe.",
+            "Chúc bạn cười nhiều, ngủ ngon, và sớm có thêm một tin vui để ăn mừng."
           ]
         ],
         love: [
           [
-          "Chúc người đặc biệt của mình một ngày 20/10 thật vui.",
-          "Cảm ơn vì đã khiến những ngày bình thường trở nên đáng nhớ.",
-          "Mong bạn luôn được làm điều mình thích, sống theo cách mình muốn.",
-          "Những ngày mệt mỏi, hy vọng mình có thể ở bên và lắng nghe.",
-          "Chúc chúng mình còn nhiều ngày bình yên cùng nhau."
+            "{name} à, 20/10 vui nhé.",
+            "Hôm nay mình chúc cậu xinh, cậu vui, và những việc đang lo đều ổn cả.",
+            "Có chuyện gì buồn thì kể mình nghe, chuyện lớn hay nhỏ cũng được.",
+            "Còn chuyện đi ăn gì hôm nay, cứ chọn món cậu thích nhé."
           ],
           [
-            "Gửi {name}, người làm mình muốn dành thêm thời gian cho những điều nhỏ.",
-            "Chúc bạn một ngày 20/10 được quan tâm theo đúng cách mình mong.",
-            "Mong mọi dự định của bạn đều có người ủng hộ, trong đó có mình.",
-            "Cảm ơn những lần lắng nghe, những cuộc hẹn và cả sự kiên nhẫn.",
-            "Hy vọng chúng mình sẽ cùng có thêm nhiều kỷ niệm vui."
+            "Chúc {name} một ngày 20/10 thật vui.",
+            "Mình thích cả những lúc đi chơi cùng nhau lẫn những lúc chỉ ngồi nói chuyện linh tinh.",
+            "Mong sắp tới có thêm nhiều buổi như thế, chẳng cần dịp gì đặc biệt.",
+            "Hoa hôm nay dành cho cậu. Còn thương cậu thì ngày nào cũng vậy."
           ],
           [
-            "Ngày 20/10, gửi bạn một đóa hoa và một lời cảm ơn.",
-            "Cảm ơn vì đã ở đây, cùng chia sẻ những chuyện rất đỗi thường ngày.",
-            "Mong bạn khỏe, vui và luôn có đủ không gian cho ước mơ riêng.",
-            "Khi cần một người bên cạnh, mong mình có thể là người ấy.",
-            "Chúc {name} hôm nay thật ấm áp, và ngày mai cũng vậy."
+            "20/10, chúc {name} nhận được món quà mình đang thích nhé.",
+            "Mong cậu bớt thức khuya, ăn đúng bữa và đừng ôm hết chuyện buồn một mình.",
+            "Mình vẫn muốn nghe cậu kể hôm nay đã làm gì, gặp ai, có chuyện gì vui.",
+            "Thương cậu, kể cả những hôm cậu hơi khó chiều."
+          ],
+          [
+            "Gửi {name}, người mình muốn rủ đi ăn đầu tiên mỗi khi tìm được quán ngon.",
+            "20/10 này, chúc cậu thật khỏe, thật vui và được chiều chuộng một chút.",
+            "Mong chúng mình còn được cùng nhau đi nhiều nơi, thử nhiều món và chụp thêm nhiều ảnh.",
+            "Cảm ơn cậu đã ở bên. Mình quý những ngày có cậu lắm."
           ]
         ]
       };
 
-      // SỬA CÁC LỜI NHẮN TRÊN HÀNH TRÌNH Ở ĐÂY.
       const KEEPSAKES = [
-        { name: "Bình yên", notes: ["Bạn không cần làm xong tất cả hôm nay. Một tách trà và vài phút nghỉ cũng là điều đáng dành cho mình.", "Mong bạn có một nơi thật yên, được thở chậm lại và không cần vội vàng.", "Có những ngày chỉ cần ăn một bữa ngon, ngủ một giấc đủ và thấy lòng nhẹ hơn."] },
-        { name: "Tự tin", notes: ["Mỗi bước nhỏ bạn đang đi đều có ý nghĩa. Cứ bắt đầu từ điều vừa sức hôm nay nhé.", "Bạn có quyền thử một điều mới, đổi ý và chọn con đường phù hợp hơn với mình.", "Mong bạn nhìn thấy cả những điều mình đã làm được, kể cả những điều chưa ai kịp nói lời cảm ơn."] },
-        { name: "Niềm vui", notes: ["Hôm nay, thử tự tặng mình một điều nhỏ: món bánh thích ăn, một bài nhạc hay, một cuộc hẹn vui.", "Chúc bạn gặp một chuyện dễ thương bất ngờ, đủ để mỉm cười thêm một lúc.", "Một tin nhắn hỏi thăm, một bông hoa ven đường — mong ngày của bạn có nhiều điều nhỏ đáng nhớ."] }
+        { name: "Bình yên", notes: ["Chúc tối nay bạn đặt lưng là ngủ ngon, sáng mai thức dậy thấy người khỏe khoắn.", "Mong chuyện đang lo sớm giải quyết xong, để ăn một bữa cơm cũng thấy ngon hơn.", "Chúc bạn có một buổi tối thảnh thơi: cơm ngon, phim hay, không ai gọi giục việc."] },
+        { name: "Tự tin", notes: ["Chúc điều bạn đang định thử sẽ thành công, để có dịp khoe: biết thế mình làm sớm hơn!", "Mong lần tới có cơ hội hay, bạn sẽ mạnh dạn nhận lời và làm được thật tốt.", "Chúc những hôm bạn bỏ công, bỏ sức đều nhận lại kết quả khiến mình thấy đáng."] },
+        { name: "Niềm vui", notes: ["Chúc bạn hôm nay được mời món mình thích. Nếu chưa ai mời thì tự thưởng cũng được nhé!", "Mong điện thoại hôm nay báo tin vui nhiều hơn báo việc. 20/10 mà, được vui chứ!", "Chúc bạn mua gì cũng vừa ý, đi đâu cũng gặp người dễ mến, chụp tấm nào cũng thấy xinh."] }
       ];
 
-      // URLSearchParams đọc đúng dấu tiếng Việt; textContent ngăn chèn HTML từ URL.
       const params = new URLSearchParams(window.location.search);
       function cleanName(value) {
         return [...(value || "").replace(/[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/g, "").trim()].slice(0, 60).join("");
@@ -606,7 +609,6 @@
       let toastTimer;
       let copyTarget = "";
 
-      // Chọn ngẫu nhiên trong các mẫu còn lại, tránh lặp mẫu vừa xem.
       function randomIndex(length, previous) {
         if (length < 2) return 0;
         if (previous < 0) return Math.floor(Math.random() * length);
@@ -642,18 +644,16 @@
         if (recipient) url.searchParams.set("to", recipient);
         if (sender) url.searchParams.set("from", sender);
         url.searchParams.set("type", type);
-        // Mỗi lượt mở trang tự chọn một lời chúc, không cố định mẫu trong link.
         return url.href;
       }
       function syncURL() {
         try { history.replaceState(null, "", makeShareURL()); }
-        catch { /* File offline vẫn dùng được nếu trình duyệt chặn đổi URL. */ }
+        catch {  }
       }
       $("name-input").value = recipient;
       $("from-input").value = sender;
       $("greeting-type").value = type;
       updateNames();
-      // Tự chọn khi mở trang; chọn lại khi bắt đầu một hành trình mới.
       renderWish();
       function applyPersonalization() {
         recipient = cleanName($("name-input").value);
@@ -712,7 +712,6 @@
         $("open-flower").disabled = true;
         setStep(4);
         $("wish-title").focus({ preventScroll: true });
-        // Sau khi đọc các lời nhắn ở cuối màn, đưa lá thư mới trở lại tầm nhìn.
         window.scrollTo({ top: 0, behavior: "instant" });
       }
       function openFlower() {
@@ -726,7 +725,6 @@
         if (motion.matches) showDiscovery();
         else {
           burstTimer = setTimeout(createBurst, 1000);
-          // Cánh cuối nở xong ở 4.1s; mở chặng khám phá sau 4.3s.
           bloomTimer = setTimeout(showDiscovery, 4300);
         }
       }
@@ -806,7 +804,6 @@
         });
       });
 
-      // Giới hạn hạt trang trí để điện thoại không phải vẽ quá nhiều phần tử.
       function createAmbient() {
         $("ambient").replaceChildren();
         if (motion.matches) return;
@@ -857,8 +854,6 @@
       });
       document.addEventListener("visibilitychange", () => document.body.classList.toggle("page-hidden", document.hidden));
 
-      // Nhạc piano tổng hợp nguyên bản: tạo WAV mono trong bộ nhớ, phát bằng <audio>.
-      // Chia công việc thành các lượt ngắn để không chặn animation khi trang mở.
       let musicPromise;
       let musicObjectURL;
       function createPianoTrack() {
@@ -928,15 +923,13 @@
         finally { $("music-toggle").disabled = false; updateMusicState(); }
       });
 
-      // Web Share API trên điện thoại; clipboard và hộp sao chép cho trình duyệt khác.
-      // Link file:// chỉ dùng trên máy này, nên bản offline chia sẻ nội dung lời chúc.
       function greetingText() {
         return `${salutation},\nChúc mừng 20/10!\n\n${[...$("wish-lines").children].map((line) => line.textContent).join("\n")}\n\n${$("signature").textContent}`;
       }
       async function copyText(value) {
         try {
           if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(value); return true; }
-        } catch { /* Thử cơ chế sao chép tương thích bên dưới. */ }
+        } catch {  }
         const field = document.createElement("textarea");
         field.value = value;
         field.setAttribute("aria-label", "Nội dung cần sao chép");
@@ -945,7 +938,7 @@
         (document.querySelector("dialog[open]") || document.body).appendChild(field);
         field.focus(); field.select();
         let copied = false;
-        try { copied = document.execCommand("copy"); } catch { /* Hộp sao chép thủ công luôn còn khả dụng. */ }
+        try { copied = document.execCommand("copy"); } catch {  }
         field.remove();
         if (focused && focused.focus) focused.focus({ preventScroll: true });
         return copied;
