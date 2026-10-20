@@ -1194,6 +1194,7 @@
         $("sender-input").value = recipient;
         $("create-dialog").showModal();
       });
+      $("create-form").addEventListener("submit", (event) => {
         event.preventDefault();
         const url = new URL(location.href);
         url.search = ""; url.hash = "";
